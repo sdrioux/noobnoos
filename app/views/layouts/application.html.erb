@@ -14,8 +14,9 @@
       <ul class="nav">
         <li class="active"><a href="/">Home</a></li>
           <% if current_user.present? %>
-            <%# user is logged in, show log out link %>
+            <%# user is logged in, show log out link and links%>
             <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
+            <li><%= link_to "Add a Link", new_link_path %></li>
             <%# user is not logged in, show signup and login links %>
           <% else %>
             <li><%= link_to 'Sign In', new_user_session_path %></li>
@@ -30,11 +31,7 @@
           <div class="alert"><%= alert %></div>
       <% end %>
     </div>
-
-
-
-
-
+    
   <%= yield %>
 
 </body>

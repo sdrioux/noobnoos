@@ -1,0 +1,17 @@
+.container
+  .row
+    .span4.offset4.well
+      %legend Add a Link!
+      =form_for(@link) do |f|
+        -if @link.errors.any?
+          #error_explanation
+            %h2= pluralize(@link.errors.count, "error") + "prohibited this link from being saved:"
+            %ul
+              - @idea.errors.full_messages.each do |msg|
+                %li= msg
+        %div= f.text_field :title, :placeholder => "Title", :autofocus => true
+        %div= f.text_field :url, :placeholder => "Link"
+        %div= f.submit "Add Link", :class => 'btn btn-warning'
+    / = render "devise/shared/links"
+
+
