@@ -1,0 +1,22 @@
+.row
+  .span8
+    .row
+      .span8
+        %h4
+          %strong=@link.title
+    .row
+      .span2
+        =image_tag("http://placehold.it/260x180", class: "thumbnail")
+
+      .span6      
+        %p=@link.url
+
+    .row
+      .span8
+        %p
+        %p
+          %i.icon-user 
+          by
+          =@link.user 
+          | 
+          %i.icon-calendar=@link.created_at
