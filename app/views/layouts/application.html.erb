@@ -8,19 +8,30 @@
   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
 </head>
 <body>
-<% if flash[:notice] or flash[:alert]%>
-  <p class="notice"><%= notice %></p>
-  <p class="alert"><%= alert %></p>
-<% end %>
-  
-    <%# user is logged in, show log out link %>
-  <% if current_user.present? %>
-    <%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %>
-  <%# user is not logged in, show signup and login links %>
-  <% else %>
-    <%= link_to 'Sign In', new_user_session_path %> |
-    <%= link_to 'Register Now!', new_user_registration_path %>
-  <% end %>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="/">ReadIT</a>
+      <ul class="nav">
+        <li class="active"><a href="/">Home</a></li>
+          <% if current_user.present? %>
+            <%# user is logged in, show log out link %>
+            <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
+            <%# user is not logged in, show signup and login links %>
+          <% else %>
+            <li><%= link_to 'Sign In', new_user_session_path %></li>
+            <li><%= link_to 'Register Now!', new_user_registration_path %></li>
+          <% end %>
+        </ul>      
+      </div>
+       <% if flash[:notice] or flash[:alert]%>
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+      <% end %>
+    </div>
+
+
+
+
 
   <%= yield %>
 
