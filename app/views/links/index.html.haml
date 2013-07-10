@@ -1,0 +1,22 @@
+-@links.each do |link|
+
+  .row.well
+    .span8
+      .row
+        .span8
+      .row
+        .span2
+          =image_tag("http://placedog.com/400/320", class: "thumbnail")
+        .span4
+          %h4
+            %strong=link_to link.title, link.url
+        .span4      
+          %p=link.description
+        .span4
+          %p
+            %i.icon-user 
+            by
+            =link.user.username
+            | 
+            %i.icon-calendar
+            =link.created_at.strftime("%D %T")

@@ -17,6 +17,8 @@
             <%# user is logged in, show log out link and links%>
             <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
             <li><%= link_to "Add a Link", new_link_path %></li>
+            <li><%= link_to "See All Your Links",
+              links_path %></li>
             <%# user is not logged in, show signup and login links %>
           <% else %>
             <li><%= link_to 'Sign In', new_user_session_path %></li>

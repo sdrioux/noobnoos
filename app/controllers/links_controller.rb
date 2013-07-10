@@ -17,4 +17,9 @@ class LinksController < ApplicationController
       render action: 'new'
     end
   end
+
+  def index
+    @user_id = current_user.id
+    @links = Link.where(user_id: @user_id)
+  end
 end
