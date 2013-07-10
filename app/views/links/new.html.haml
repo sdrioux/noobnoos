@@ -11,6 +11,7 @@
                 %li= msg
         %div= f.text_field :title, :placeholder => "Title", :autofocus => true
         %div= f.text_field :url, :placeholder => "Link"
+        %div= f.text_field :description, :placeholder => "Description"
         %div= f.submit "Add Link", :class => 'btn btn-warning'
     / = render "devise/shared/links"
 

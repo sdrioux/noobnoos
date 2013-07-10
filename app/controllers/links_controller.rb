@@ -9,6 +9,7 @@ class LinksController < ApplicationController
 
   def create
     @link = Link.new(params[:link])
+    @link.user = current_user
 
     if @link.save
       redirect_to @link

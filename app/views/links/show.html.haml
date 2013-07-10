@@ -2,21 +2,19 @@
   .span8
     .row
       .span8
-        %h4
-          %strong=@link.title
     .row
       .span2
-        =image_tag("http://placehold.it/260x180", class: "thumbnail")
-
-      .span6      
-        %p=@link.url
-
-    .row
-      .span8
-        %p
+        =image_tag("http://placedog.com/400/320", class: "thumbnail")
+      .span4
+        %h4
+          %strong=link_to @link.title, @link.url
+      .span4      
+        %p=@link.description
+      .span4
         %p
           %i.icon-user 
           by
-          =@link.user 
+          =@link.user.username
           | 
-          %i.icon-calendar=@link.created_at
+          %i.icon-calendar
+          =@link.created_at.strftime("%D %T")
