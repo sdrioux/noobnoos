@@ -12,11 +12,11 @@
             %strong=link_to link.title, link.url
         .span4      
           %p=link.description
-        .span4
+        .span6
           %p
             %i.icon-user 
             by
             =link.user.username
             | 
             %i.icon-calendar
-            =link.created_at.strftime("%D %T")
+            =link.created_at.strftime("%D %r")
