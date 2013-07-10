@@ -26,7 +26,7 @@
             / =link.user.username
             | 
             %i.icon-calendar
-            = link.created_at.strftime("%D %r")
+            = link.created_at.strftime("%D %T")
         .span6
           %p
             = link_to "#{link.comments.count} comments", link
