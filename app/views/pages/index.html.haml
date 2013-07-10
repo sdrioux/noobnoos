@@ -1,0 +1,29 @@
+.page-header.text-center.myheader
+  %h1 
+    Welcome to Readit!
+    %br
+    %small Where Cat Pictures Go To Die
+  / %img( src="Dance_cat.gif" width="300px" )
+
+-@links.each do |link|
+
+  .row.well
+    .span8
+      .row
+        .span8
+      .row
+        .span2
+          =image_tag("http://placedog.com/400/320", class: "thumbnail")
+        .span4
+          %h4
+            %strong=link_to link.title, link.url
+        .span4      
+          %p=link.description
+        .span6
+          %p
+            %i.icon-user 
+            by
+            / =link.user.username
+            | 
+            %i.icon-calendar
+            =link.created_at.strftime("%D %r")
