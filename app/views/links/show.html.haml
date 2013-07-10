@@ -7,7 +7,7 @@
         =image_tag("http://placedog.com/400/320", class: "thumbnail")
       .span4
         %h4
-          %strong=link_to @link.title, @link.url
+          %strong.linktitle=link_to @link.title, @link.url
       .span4      
         %p=@link.description
       .span4

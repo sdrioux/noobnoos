@@ -2,6 +2,10 @@
   margin-top: 50px;
 }
 
+.linktitle a {
+  color: #08037E;
+}
+
 .comment-header {
   margin-bottom: 20px;
 }
