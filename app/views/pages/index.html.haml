@@ -26,7 +26,10 @@
             / =link.user.username
             | 
             %i.icon-calendar
-            =link.created_at.strftime("%D %r")
+            = link.created_at.strftime("%D %r")
+        .span6
+          %p
+            = link_to "comments", link
 
 
 = will_paginate @links, renderer: BootstrapPagination::Rails, class: "pagination pagination-centered"
