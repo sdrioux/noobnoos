@@ -14,7 +14,35 @@
         %p
           %i.icon-user 
           by
-          / =@link.user.username
+          / =@link.user.username || ""
           | 
           %i.icon-calendar
           =@link.created_at.strftime("%D %T")
+%div
+  %h4.comment-header Comments:
+  - @link.comments.each do |comment|
+    .comment
+      %p
+        %span.user
+          %strong="User:" if comment.user
+          =comment.user.username if comment.user
+        %span.date
+          %strong="Date:" if comment.created_at
+          =comment.created_at.strftime("%D %r") if comment.created_at
+      %div
+        %p= comment.message
+          
+
+.container.myform
+  .row
+    .span4.offset4.well
+      %legend Add a Comment!
+      = form_for [@link, @comment] do |f|
+        -if @comment.errors.any?
+          #error_explanation
+            %h2= pluralize(@comment.errors.count, "error") + "prohibited this comment from being saved:"
+            %ul
+              - @comment.errors.full_messages.each do |msg|
+                %li= msg
+        %div= f.text_area :message, :placeholder => "Add a comment", :autofocus => true, rows: "10", class: "field span4"
+        %div= f.submit "Add Comment", :class => 'btn btn-warning'

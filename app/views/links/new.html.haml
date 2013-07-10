@@ -1,4 +1,4 @@
-.container
+.container.myform
   .row
     .span4.offset4.well
       %legend Add a Link!
@@ -7,7 +7,7 @@
           #error_explanation
             %h2= pluralize(@link.errors.count, "error") + "prohibited this link from being saved:"
             %ul
-              - @idea.errors.full_messages.each do |msg|
+              - @link.errors.full_messages.each do |msg|
                 %li= msg
         %div= f.text_field :title, :placeholder => "Title", :autofocus => true
         %div= f.text_field :url, :placeholder => "Link"

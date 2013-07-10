@@ -1,0 +1,24 @@
+.myform {
+  margin-top: 50px;
+}
+
+.comment-header {
+  margin-bottom: 20px;
+}
+
+.comment {
+  margin-left: 20px;
+  margin-bottom: 40px;
+}
+
+.comment p {
+  margin-bottom: 3px;
+}
+
+span.user strong, span.date strong {
+  color: #08037E;
+}
+
+span.date {
+  margin-left: 10px;
+}
