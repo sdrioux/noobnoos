@@ -31,6 +31,8 @@ gem 'jquery-rails'
 gem 'devise'
 #should fix issue with Windows 7, not being able to load bcrypt.
 gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap'
 
 
 # To use ActiveModel has_secure_password

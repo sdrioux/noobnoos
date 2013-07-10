@@ -27,3 +27,6 @@
             | 
             %i.icon-calendar
             =link.created_at.strftime("%D %r")
+
+
+= will_paginate @links, renderer: BootstrapPagination::Rails, class: "pagination pagination-centered"
