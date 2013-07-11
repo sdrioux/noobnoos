@@ -16,4 +16,5 @@ class Link < ActiveRecord::Base
     self.thumbnail = et.build_url(:url => self.url, :size => :large, :cache => 1).to_s
     self.save
   end
+
 end
