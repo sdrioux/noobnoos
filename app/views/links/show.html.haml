@@ -37,11 +37,11 @@
           .row
             .span1
               %div
-                = link_to raw('<i class="icon-caret-up icon-2x myvotearrow"></i>'), vote_up_link_comment_path(comment), :method => :post
+                = link_to raw('<i class="icon-caret-up icon-2x myvotearrow"></i>'), vote_up_link_comment_path(@link,comment), :method => :post
               %div
-                %h3.votes=@comment.plusminus
+                %h3.votes=comment.plusminus
               %div
-                = link_to raw('<i class="icon-caret-down icon-2x myvotearrow"></i>'), vote_down_link_comment_path(comment), :method => :post, class: 'arrow'
+                = link_to raw('<i class="icon-caret-down icon-2x myvotearrow"></i>'), vote_down_link_comment_path(@link, comment), :method => :post, class: 'arrow'
             %div.comment-content    
               %p
                 %span.user

@@ -6,6 +6,8 @@
   margin-top: 50px;
 }
 
+/*   LINKS   */
+
 i.myvotearrow {
   margin-left: 20px;
   text-decoration: none;
@@ -26,6 +28,8 @@ div.span1 {
 .linktitle a {
   color: #08037E;
 }
+
+/*   COMMENTS   */
 
 .comments {
   margin-top: 50px;
@@ -50,7 +54,7 @@ div.span1 {
 }
 
 h3.votes {
-  margin: -10px 21px;
+  margin: -15px 21px;
 }
 
 span.user strong, span.date strong {
