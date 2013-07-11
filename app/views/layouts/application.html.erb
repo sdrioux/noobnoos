@@ -7,7 +7,6 @@
   <%= csrf_meta_tags %>
   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
-
 </head>
 <body>
   <div class="navbar">
@@ -26,7 +25,21 @@
             <li><%= link_to 'Sign In', new_user_session_path %></li>
             <li><%= link_to 'Register Now!', new_user_registration_path %></li>
           <% end %>
-        </ul>      
+        </ul>
+        <ul class="nav pull-right">
+          <li id="fat-menu" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" href="#">
+              <i class="icon-user"></i>  Menu<span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+              <li><a tabindex="-1" href="#">Action</a></li>
+              <li><a tabindex="-1" href="#">Action-2</a></li>
+              <li><a tabindex="-1" href="#">Action-3</a></li>
+              <li class="divider"></li>
+              <li><a tabindex="-1" href="#">Action-4</a></li>
+            </ul>
+          </li>
+        </ul>
       </div>
       <% if flash[:notice] %>
           <div class="alert"><%= notice %></div>
