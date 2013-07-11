@@ -6,7 +6,7 @@
         .span8
       .row
         .span2
-          =image_tag("http://placesheen.com/400/320", class: "thumbnail")
+          =image_tag(@link.thumbnail || "r.jpeg", class: "thumbnail")
         .span4
           %h4
             %strong=link_to link.title, link.url

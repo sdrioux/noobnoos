@@ -21,7 +21,7 @@
             = link_to raw('<i class="icon-caret-down icon-4x myvotearrow"></i>'), vote_down_link_path(link), :method => :post
         %div.link
           .span2.mythumbnail
-            =image_tag("http://placesheen.com/400/320", class: "thumbnail")
+            =image_tag(link.thumbnail || "r.jpeg", class: "thumbnail")
           .span4
             %h4
               %strong=link_to link.title, link.url
@@ -31,7 +31,7 @@
             %p
               %i.icon-user 
               by
-              =link.user.username
+              / =link.user.username
               | 
               %i.icon-calendar
               = link.created_at.strftime("%D %T")
