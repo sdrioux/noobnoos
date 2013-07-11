@@ -56,7 +56,12 @@ Readit::Application.routes.draw do
       post :vote_up
       post :vote_down
     end
-    resources :comments
+    resources :comments do
+      member do
+        post :vote_up
+        post :vote_down
+      end
+    end
   end
   root :to => 'pages#index'
 
