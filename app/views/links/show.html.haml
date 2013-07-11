@@ -3,7 +3,7 @@
     .row
       .span8
     .row
-      .span1
+      .span1.span-link-vote
         %div
           = link_to raw('<i class="icon-caret-up icon-4x myvotearrow"></i>'), vote_up_link_path(@link), :method => :post
         %div
@@ -28,20 +28,20 @@
             =@link.created_at.strftime("%D %T")
 %div.comments
   %h4.comment-header Comments:
-  - @link.comments.each do |comment|
+  - @link.comments.sort_by {|comment| comment.plusminus}.reverse.each do |comment|
     -if comment.message !=nil
       .comment.row
         .span8
           .row
             .span8
           .row
-            .span1
+            .span1.span-comment-vote
               %div
                 = link_to raw('<i class="icon-caret-up icon-2x myvotearrow"></i>'), vote_up_link_comment_path(@link,comment), :method => :post
               %div
-                %h3.votes=comment.plusminus
+                %h4.votes=comment.plusminus
               %div
-                = link_to raw('<i class="icon-caret-down icon-2x myvotearrow"></i>'), vote_down_link_comment_path(@link, comment), :method => :post, class: 'arrow'
+                = link_to raw('<i class="icon-caret-down icon-2x myvotearrow"></i>'), vote_down_link_comment_path(@link, comment), :method => :post
             %div.comment-content    
               %p
                 %span.user

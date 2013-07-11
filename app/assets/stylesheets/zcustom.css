@@ -21,7 +21,7 @@ h1.votes {
   margin: -10px 25px;
 }
 
-div.span1 {
+div.span1.span-link-vote {
   margin-right: 20px;
 }
 
@@ -40,8 +40,12 @@ div.span1 {
   margin-left: 20px;
 }
 
+div.span1.span-comment-vote {
+  margin-right: 10px;
+}
+
 .comment-content {
-  margin-top: 15px;
+  margin-top: 8px;
 }
 
 .comment {
@@ -53,8 +57,8 @@ div.span1 {
   margin-bottom: 3px;
 }
 
-h3.votes {
-  margin: -15px 21px;
+h4.votes {
+  margin: -10px 22px;
 }
 
 span.user strong, span.date strong {
