@@ -9,6 +9,7 @@ class Link < ActiveRecord::Base
 
   #model callbacks - DO RESEARCH
   after_create :add_thumbnail
+  # ,  :if => :active_link?
 
   def add_thumbnail
     et = Easythumb.new('f4915c6f9693f8e179f6307856253778','72561')

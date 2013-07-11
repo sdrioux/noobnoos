@@ -8,6 +8,11 @@
 
 /*   LINKS   */
 
+div.mylinkspace {
+  padding: 0;
+
+}
+
 i.myvotearrow {
   margin-left: 20px;
   text-decoration: none;

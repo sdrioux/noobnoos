@@ -15,8 +15,7 @@
       <ul class="nav">
         <li class="active"><a href="/">Home</a></li>
           <% if current_user.present? %>
-            <%# user is logged in, show log out link and links%>
-            <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete %></li>
+            <%# user is logged in, show log out link%>
             <li><%= link_to "Add a Link", new_link_path %></li>
             <li><%= link_to "See All Your Links",
               links_path %></li>
@@ -32,11 +31,19 @@
               <i class="icon-user"></i>  Menu<span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-              <li><a tabindex="-1" href="#">Action</a></li>
-              <li><a tabindex="-1" href="#">Action-2</a></li>
-              <li><a tabindex="-1" href="#">Action-3</a></li>
+            <% if current_user.present? %>
+              <li><a tabindex="-1" href="#">Profile</a></li>
+            <% else %>
+            <li><%= link_to 'Sign In', new_user_session_path %></li>
+            <% end %>
               <li class="divider"></li>
-              <li><a tabindex="-1" href="#">Action-4</a></li>
+              <li><a tabindex="-1" href="#">About</a></li>
+              <li><a tabindex="-1" href="#">Contact Me</a></li>
+            <% if current_user.present? %>
+              <li class="divider"></li>
+              <%# user is logged in, show log out link and links%>
+              <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete, tabindex: "-1" %></li>
+            <% end %>
             </ul>
           </li>
         </ul>
