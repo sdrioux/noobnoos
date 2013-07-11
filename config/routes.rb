@@ -52,6 +52,10 @@ Readit::Application.routes.draw do
   # just remember to delete public/index.html.
   resources :pages
   resources :links do
+    member do
+      post :vote_up
+      post :vote_down
+    end
     resources :comments
   end
   root :to => 'pages#index'

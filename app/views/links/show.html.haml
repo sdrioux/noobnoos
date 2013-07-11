@@ -3,22 +3,30 @@
     .row
       .span8
     .row
-      .span2
-        =image_tag("http://placedog.com/400/320", class: "thumbnail")
-      .span4
-        %h4
-          %strong.linktitle=link_to @link.title, @link.url
-      .span4      
-        %p=@link.description
-      .span4
-        %p
-          %i.icon-user 
-          by
-          / =@link.user.username || ""
-          | 
-          %i.icon-calendar
-          =@link.created_at.strftime("%D %T")
-%div
+      .span1
+        %div
+          = link_to raw('<i class="icon-caret-up icon-4x myvotearrow"></i>'), vote_up_link_path(@link), :method => :post
+        %div
+          %h1.votes=@link.plusminus
+        %div
+          = link_to raw('<i class="icon-caret-down icon-4x myvotearrow"></i>'), vote_down_link_path(@link), :method => :post, class: 'arrow'
+      %div.link
+        .span2.mythumbnail
+          =image_tag("http://placesheen.com/400/320", class: "thumbnail")
+        .span4
+          %h4
+            %strong.linktitle=link_to @link.title, @link.url
+        .span4      
+          %p=@link.description
+        .span4
+          %p
+            %i.icon-user 
+            by
+            / =@link.user.username || ""
+            | 
+            %i.icon-calendar
+            =@link.created_at.strftime("%D %T")
+%div.comments
   %h4.comment-header Comments:
   - @link.comments.each do |comment|
     .comment

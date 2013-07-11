@@ -1,4 +1,4 @@
-.span4.offset4.well {
+.myregistration, .mysignin {
   max-width: 228px;
 }
 
@@ -6,12 +6,34 @@
   margin-top: 50px;
 }
 
+i.myvotearrow {
+  margin-left: 20px;
+  text-decoration: none;
+}
+
+div.link {
+  margin-top: 20px;
+}
+
+h1.votes {
+  margin: -10px 25px;
+}
+
+div.span1 {
+  margin-right: 20px;
+}
+
 .linktitle a {
   color: #08037E;
 }
 
+.comments {
+  margin-top: 50px;
+}
+
 .comment-header {
   margin-bottom: 20px;
+  margin-left: 20px;
 }
 
 .comment {
