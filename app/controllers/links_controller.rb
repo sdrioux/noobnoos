@@ -24,7 +24,7 @@ class LinksController < ApplicationController
     params[:per_page] ||=5
     
     @user_id = current_user.id
-    @links = Link.where(user_id: @user_id).page(params[:page].to_i).per_page(params[:per_page].to_i)
+    @links = Link.plusminus_tally.order('plusminus_tally ASC').page(params[:page].to_i).per_page(params[:per_page].to_i)
   end
 
   def vote_up
