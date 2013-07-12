@@ -29,7 +29,9 @@
         <ul class="nav pull-right">
           <li id="fat-menu" class="dropdown">
             <a class="dropdown-toggle" data-toggle="dropdown" role="button" href="#">
-              <i class="icon-user"></i>  Menu<span class="caret"></span>
+              <i class="icon-user"></i>  
+                <%= current_user.present? ? current_user.username : "Menu" %>
+                <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
             <% if current_user.present? %>

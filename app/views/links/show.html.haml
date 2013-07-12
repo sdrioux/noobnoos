@@ -12,7 +12,7 @@
           = link_to raw('<i class="icon-caret-down icon-4x myvotearrow"></i>'), vote_down_link_path(@link), :method => :post, class: 'arrow'
       .link
         .span3.mythumbnail
-          =image_tag(@link.thumbnail || "r.jpeg", class: "thumbnail")
+          =link_to image_tag(@link.thumbnail || "r.jpeg", class: "thumbnail"), @link.url
       .linkinfo
         .span4
           %h4

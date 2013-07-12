@@ -9,9 +9,9 @@
             %ul
               - @link.errors.full_messages.each do |msg|
                 %li= msg
-        %div= f.text_field :title, :placeholder => "Title", :autofocus => true
-        %div= f.text_field :url, :placeholder => "Link"
-        %div= f.text_field :description, :placeholder => "Description"
+        %div= f.text_field :title, :placeholder => "Title", :autofocus => true, class: "field span4"
+        %div= f.text_field :url, :placeholder => "Link", class: "field span4"
+        %div= f.text_area :description, :placeholder => "Description", class: "field span4", rows: "10"
         %div= f.submit "Add Link", :class => 'btn btn-warning'
     / = render "devise/shared/links"
 
