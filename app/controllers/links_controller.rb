@@ -20,8 +20,11 @@ class LinksController < ApplicationController
   end
 
   def index
+        params[:page] ||=1
+    params[:per_page] ||=10
+    
     @user_id = current_user.id
-    @links = Link.where(user_id: @user_id)
+    @links = Link.where(user_id: @user_id).page(params[:page].to_i).per_page(params[:per_page].to_i)
   end
 
   def vote_up

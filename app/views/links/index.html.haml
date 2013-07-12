@@ -1,25 +1,36 @@
--@links.each do |link|
+-@links.sort_by {|link| link.plusminus}.reverse.each do |link|
 
   .row.well.mylinkspace
     .span8
       .row
         .span8
       .row
-        .span2
-          =image_tag(link.thumbnail || "r.jpeg", class: "thumbnail")
-        .span4
-          %h4
-            %strong=link_to link.title, link.url
-        .span4      
-          %p=link.description
-        .span6
-          %p
-            %i.icon-user 
-            by
-            =link.user.username
-            | 
-            %i.icon-calendar
-            =link.created_at.strftime("%D %T")
-        .span6
-          %p
-            = link_to "#{link.comments.count} comments", link
+        .span1.span-link-vote
+          %div
+            = link_to raw('<i class="icon-caret-up icon-4x myvotearrow"></i>'), vote_up_link_path(link), :method => :post
+          %div
+            %h1.votes=link.plusminus
+          %div
+            = link_to raw('<i class="icon-caret-down icon-4x myvotearrow"></i>'), vote_down_link_path(link), :method => :post
+        .link
+          .span3.mythumbnail
+            =image_tag(link.thumbnail || "r.jpeg", class: "thumbnail mythumbnail")
+        .linkinfo  
+          .span4
+            %h4
+              %strong=link_to link.title, link.url
+          .span8      
+            %p.previewtext=link.previewtext
+          .span6
+            %p
+              %i.icon-user 
+              by
+              =link.user.username
+              | 
+              %i.icon-calendar
+              = link.created_at.strftime("%D %T")
+          .span6
+            %p
+              = link_to "#{link.comments.count} comments", link
+
+= will_paginate @links, renderer: BootstrapPagination::Rails, class: "pagination pagination-centered"

@@ -1,3 +1,7 @@
+a {
+  color: #08037E !important;
+}
+
 .myregistration, .mysignin {
   max-width: 228px;
 }
@@ -10,6 +14,8 @@
 
 div.mylinkspace {
   padding: 0;
+  margin-bottom: 10px;
+  height: 180px;
 
 }
 
@@ -18,8 +24,14 @@ i.myvotearrow {
   text-decoration: none;
 }
 
-div.link {
-  margin-top: 10px;
+img.thumbnail.mythumbnail {
+  width: 150px;
+  margin-top: 28px;
+}
+
+div.linkinfo {
+  width: 100px;
+  display: inline-block;
 }
 
 h1.votes {
@@ -28,10 +40,16 @@ h1.votes {
 
 div.span1.span-link-vote {
   margin-right: 20px;
+  margin-top: 20px;
 }
 
 .linktitle a {
   color: #08037E;
+}
+
+p.previewtext {
+  height: 60px;
+  width: 600px;
 }
 
 /*   COMMENTS   */

@@ -7,13 +7,14 @@
   <%= csrf_meta_tags %>
   <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
   <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </head>
 <body>
   <div class="navbar">
     <div class="navbar-inner">
       <a class="brand" href="/">ReadIT</a>
       <ul class="nav">
-        <li class="active"><a href="/">Home</a></li>
+        <li><a href="/">Home</a></li>
           <% if current_user.present? %>
             <%# user is logged in, show log out link%>
             <li><%= link_to "Add a Link", new_link_path %></li>

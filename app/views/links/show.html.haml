@@ -10,19 +10,20 @@
           %h1.votes=@link.plusminus
         %div
           = link_to raw('<i class="icon-caret-down icon-4x myvotearrow"></i>'), vote_down_link_path(@link), :method => :post, class: 'arrow'
-      %div.link
-        .span2.mythumbnail
+      .link
+        .span3.mythumbnail
           =image_tag(@link.thumbnail || "r.jpeg", class: "thumbnail")
+      .linkinfo
         .span4
           %h4
             %strong.linktitle=link_to @link.title, @link.url
-        .span4      
+        .span8      
           %p=@link.description
-        .span4
+        .span6
           %p
             %i.icon-user 
             by
-            =@link.user.username || ""
+            =@link.user.username
             | 
             %i.icon-calendar
             =@link.created_at.strftime("%D %T")
