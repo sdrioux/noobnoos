@@ -1,9 +1,11 @@
 .page-header.text-center.myheader
-  %h1 
+  %img.cat( src="catleft.jpeg" width="80px")
+  %h1.header 
     Welcome to Readit!
     %br
     %small Where Cat Pictures Go To Die
-  %img( src="Dance_cat.gif" width="100px" )
+  %img.cat( src="catright.jpeg" width="80px")
+       
 
 -@links.sort_by {|link| link.plusminus}.reverse.each do |link|
   .row.well.mylinkspace
@@ -26,7 +28,8 @@
         %p
           %i.icon-user 
           by
-          =link.user.username
+          %span.blue
+            =link.user.username
           | 
           %i.icon-calendar
           = link.created_at.strftime("%D %T")

@@ -1,4 +1,14 @@
-a {
+.header {
+  width: 400px;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+img.cat {
+  vertical-align: bottom;
+}
+
+a, .blue {
   color: #08037E !important;
 }
 
