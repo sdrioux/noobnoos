@@ -37,7 +37,6 @@ gem 'thumbs_up'
 gem 'simplificator-rwebthumb'
 gem 'rwebthumb'
 
-
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 

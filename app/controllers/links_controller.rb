@@ -2,6 +2,7 @@ class LinksController < ApplicationController
   def show
     @link = Link.find(params[:id])
     @comment = @link.comments.build
+    @gravatar_hash = Digest::MD5.hexdigest(@link.user.email.downcase)
   end
 
   def new

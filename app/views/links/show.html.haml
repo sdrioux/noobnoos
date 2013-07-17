@@ -21,8 +21,7 @@
           %p=@link.description
         .span6
           %p
-            %i.icon-user 
-            by
+            =image_tag("http://www.gravatar.com/avatar/" + @gravatar_hash, class: "userthumb")
             %span.blue
               =@link.user.username
             | 

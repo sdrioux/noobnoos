@@ -37,11 +37,12 @@ i.myvotearrow {
 img.thumbnail.mythumbnail {
   width: 180px;
   margin-top: 15px;
+  max-height: 145px;
 }
 
-/*img.thumbnail {
-  max-width: 230px;
-}*/
+img.userthumb {
+  width: 40px;
+}
 
 div.linkinfo {
   width: 100px;
