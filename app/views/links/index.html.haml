@@ -14,7 +14,7 @@
             = link_to raw('<i class="icon-caret-down icon-4x myvotearrow"></i>'), vote_down_link_path(link), :method => :post
         .link
           .span3.mythumbnail
-            =link_to image_tag(link.thumbnail || "r.jpeg", class: "thumbnail"), link.url
+            =link_to image_tag(link.thumbnail || "r.jpeg", class: "thumbnail mythumbnail"), link.url
         .linkinfo  
           .span4
             %h4
@@ -23,15 +23,14 @@
             %p.previewtext=link.previewtext
           .span6
             %p
-              %i.icon-user 
-              by
+              -gravatar_hash = Digest::MD5.hexdigest(link.user.email.downcase)
+              =image_tag("http://www.gravatar.com/avatar/" + gravatar_hash, class: "userthumb")
               %span.blue
                 =link.user.username
               | 
               %i.icon-calendar
               = link.created_at.strftime("%D %T")
-          .span6
-            %p
+              |
               = link_to "#{link.comments.count} comments", link
 
 = will_paginate @links, renderer: BootstrapPagination::Rails, class: "pagination pagination-centered"

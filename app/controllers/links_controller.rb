@@ -2,7 +2,6 @@ class LinksController < ApplicationController
   def show
     @link = Link.find(params[:id])
     @comment = @link.comments.build
-    @gravatar_hash = Digest::MD5.hexdigest(@link.user.email.downcase)
   end
 
   def new
@@ -23,9 +22,8 @@ class LinksController < ApplicationController
   def index
         params[:page] ||=1
     params[:per_page] ||=5
-    
-    @user_id = current_user.id
-    @links = Link.plusminus_tally.order('plusminus_tally ASC').page(params[:page].to_i).per_page(params[:per_page].to_i)
+    # Only show the links that the current user has submitted, in order of upvote count.
+    @links = Link.where(user_id: current_user.id).plusminus_tally.order('plusminus_tally ASC').page(params[:page].to_i).per_page(params[:per_page].to_i)
   end
 
   def vote_up

@@ -44,6 +44,11 @@ img.userthumb {
   width: 40px;
 }
 
+img.userthumb-mini {
+  width: 28px;
+  margin: -10px 0;
+}
+
 div.linkinfo {
   width: 100px;
   display: inline-block;

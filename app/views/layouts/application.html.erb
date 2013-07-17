@@ -28,9 +28,15 @@
         </ul>
         <ul class="nav pull-right">
           <li id="fat-menu" class="dropdown">
-            <a class="dropdown-toggle" data-toggle="dropdown" role="button" href="#">
-              <i class="icon-user"></i>  
-                <%= current_user.present? ? current_user.username : "Menu" %>
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" href="#">  
+                <% if current_user.present? %>
+                  <% gravatar_hash = Digest::MD5.hexdigest(current_user.email.downcase) %>
+                  <%= image_tag("http://www.gravatar.com/avatar/" + gravatar_hash, class: "userthumb-mini") %>
+                  <%= current_user.username %>
+                <% else %>
+                  <i class="icon-user"></i>
+                  Menu
+                <% end %>
                 <span class="caret"></span>
             </a>
             <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
