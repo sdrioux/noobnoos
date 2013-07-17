@@ -27,7 +27,8 @@
               =@link.user.username
             | 
             %i.icon-calendar
-            =@link.created_at.strftime("%D %T")
+            -localtime = @link.created_at-5.hours
+            = localtime.strftime("%D %I:%M %p")
 %div.comments
   %h4.comment-header Comments:
   - @link.comments.sort_by {|comment| comment.plusminus}.reverse.each do |comment|
@@ -48,10 +49,11 @@
               %p
                 %span.user
                   %strong="User:" if comment.user
-                  =comment.user.username if comment.user
+                  = comment.user.username if comment.user
                 %span.date
                   %strong="Date:" if comment.created_at
-                  =comment.created_at.strftime("%D %r") if comment.created_at
+                  - localcommenttime = comment.created_at-5.hours if comment.created_at
+                  = localcommenttime.strftime("%D %I:%M %p") if comment.created_at
               %div
                 %p= comment.message
           

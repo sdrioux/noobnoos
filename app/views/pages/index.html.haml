@@ -32,7 +32,8 @@
             =link.user.username
           | 
           %i.icon-calendar
-          = link.created_at.strftime("%D %T")
+          -localtime = link.created_at-5.hours
+          = localtime.strftime("%D %I:%M %p")
           |
           = link_to "#{link.comments.count} comments", link
 
