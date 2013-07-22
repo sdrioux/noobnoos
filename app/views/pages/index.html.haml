@@ -8,7 +8,7 @@
        
 
 -@links.sort_by {|link| link.plusminus}.reverse.each do |link|
-  .row.well.mylinkspace
+  .row.mylinkspace
     .span1.span-link-vote
       %div
         = link_to raw('<i class="icon-caret-up icon-4x myvotearrow"></i>'), vote_up_link_path(link), :method => :post

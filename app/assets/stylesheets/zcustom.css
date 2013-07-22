@@ -4,6 +4,9 @@
   margin-top: 20px;
 }
 
+.myheader {
+}
+
 img.cat {
   vertical-align: bottom;
 }
@@ -26,6 +29,8 @@ div.mylinkspace {
   padding: 0;
   margin-bottom: 10px;
   height: 180px;
+  border-bottom: 1px solid #e5e5e5;
+  margin-left: 0;
 
 }
 
@@ -37,7 +42,7 @@ i.myvotearrow {
 img.thumbnail.mythumbnail {
   width: 180px;
   margin-top: 15px;
-  max-height: 145px;
+  max-height: 135px;
 }
 
 img.userthumb {
