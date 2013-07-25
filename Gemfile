@@ -36,6 +36,8 @@ gem 'will_paginate-bootstrap'
 gem 'thumbs_up'
 gem 'simplificator-rwebthumb'
 gem 'rwebthumb'
+gem 'fog'
+# gem 'figaro'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

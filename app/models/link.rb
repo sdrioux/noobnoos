@@ -13,8 +13,12 @@ class Link < ActiveRecord::Base
   after_create :add_preview_text
 
   def add_thumbnail
-    et = Easythumb.new('f4915c6f9693f8e179f6307856253778','72561')
-    self.thumbnail = et.build_url(:url => self.url, :size => :large, :cache => 1).to_s
+    wt = Webthumb.new('099811cd90ed3133d359f06edd87db46')
+    job = wt.thumbnail(:url => self.url)
+    # self.thumbnail = job.fetch_when_complete(:small)
+    job.write_file(job.fetch_when_complete(:small), 'app/assets/images/' + self.title + '.jpg')
+    self.thumbnail = '/assets/' + self.title + '.jpeg'
+    # self.thumbnail = et.build_url(:url => self.url, :size => :large, :cache => 1).to_s
     self.save
   end
 

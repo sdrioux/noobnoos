@@ -17,3 +17,5 @@
 .DS_Store
 
 vendor/bundle
+# Ignore application configuration
+/config/application.yml
