@@ -37,7 +37,7 @@ gem 'thumbs_up'
 gem 'simplificator-rwebthumb'
 gem 'rwebthumb'
 gem 'fog'
-# gem 'figaro'
+gem 'figaro'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
