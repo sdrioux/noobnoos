@@ -15,7 +15,20 @@ class LinksController < ApplicationController
     if @link.save
       redirect_to @link
     else
-      render action: 'new'
+      render :new
+    end
+  end
+
+  def edit
+    @link = Link.find(params[:id])
+  end
+
+  def update
+    @link = Link.find(params[:id])
+    if @link.update_attributes(params[:link])
+      redirect_to(@link)
+    else
+      render :edit
     end
   end
 
@@ -42,5 +55,11 @@ class LinksController < ApplicationController
     rescue ActiveRecord::RecordInvalid
       redirect_to :back
     end
+  end
+
+  def destroy
+    @link = Link.find(params[:id])
+    @link.destroy
+    redirect_to root_url
   end
 end

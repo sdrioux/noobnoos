@@ -1,3 +1,5 @@
+//Displays all links that the user has submitted.
+
 -@links.sort_by {|link| link.plusminus}.reverse.each do |link|
   .row.mylinkspace
     .span1.span-link-vote
@@ -12,10 +14,10 @@
     .linkinfo  
       .span4
         %h4
-          %strong.linktitle=link_to link.title, link.url
+          %strong.linktitle=link_to link.title, link
       .span8      
         %p.previewtext=link.previewtext
-      .span6
+      .span7
         %p
           -gravatar_hash = Digest::MD5.hexdigest(link.user.email.downcase)
           =image_tag("http://www.gravatar.com/avatar/" + gravatar_hash, class: "userthumb")
@@ -27,6 +29,8 @@
           = localtime.strftime("%D %I:%M %p")
           |
           = link_to "#{link.comments.count} comments", link
+          |
+          = link_to "Edit Link", edit_link_path(link)
 
 
 = will_paginate @links, renderer: BootstrapPagination::Rails, class: "pagination pagination-centered"

@@ -29,6 +29,11 @@
             %i.icon-calendar
             -localtime = @link.created_at-5.hours
             = localtime.strftime("%D %I:%M %p")
+            - if current_user == @link.user
+              |
+              = link_to "Edit Link", edit_link_path(@link)
+              |
+              = link_to "Delete Link", @link, confirm: "Are you sure?",method: "delete"
 %div.comments
   %h4.comment-header Comments:
   - @link.comments.sort_by {|comment| comment.plusminus}.reverse.each do |comment|

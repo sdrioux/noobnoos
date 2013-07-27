@@ -1,0 +1,16 @@
+.container.myform
+  .row
+    .span4.offset4.well
+      %legend Edit Link!
+      =form_for(@link) do |f|
+        -if @link.errors.any?
+          #error_explanation
+            %h2= pluralize(@link.errors.count, "error") + "prohibited this link from being saved:"
+            %ul
+              - @link.errors.full_messages.each do |msg|
+                %li= msg
+        %div= f.text_field :title, :placeholder => "Title", :autofocus => true, class: "field span4"
+        %div= f.text_field :url, :placeholder => "Link", class: "field span4"
+        %div= f.text_area :description, :placeholder => "Description", class: "field span4", rows: "10"
+        %div= f.submit "Update Link", :class => 'btn btn-warning'
+    / = render "devise/shared/links"
