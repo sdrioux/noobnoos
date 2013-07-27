@@ -15,15 +15,14 @@ class Link < ActiveRecord::Base
   def add_thumbnail
     wt = Webthumb.new('099811cd90ed3133d359f06edd87db46')
     job = wt.thumbnail(:url => self.url)
-    # self.thumbnail = job.fetch_when_complete(:small)
     filename = File.join(Rails.root, 'tmp', self.title + '.jpg')
-    job.write_file(job.fetch_when_complete(:small), filename)
-    #self.thumbnail = '/assets/' + self.title + '.jpeg'
-    # self.thumbnail = et.build_url(:url => self.url, :size => :large, :cache => 1).to_s
+    job.write_file(job.fetch_when_complete(:large), filename)
+
     
 
     # Upload to S3
     file = Rails.application.config.storage_dir.files.create(
+      #key is title.jpg of url
       :key    => filename.split('/').last,
       :body   => File.open(filename),
       :public => true
