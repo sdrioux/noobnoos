@@ -1,0 +1,80 @@
+!!! 5
+/ paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither/
+/[if lt IE 7 ] <html class=\"ie6\" lang=\"en\">
+/[if IE 7 ]    <html class=\"ie7\" lang=\"en\">
+/[if IE 8 ]    <html class=\"ie8\" lang=\"en\">
+/[if IE 9 ]    <html class=\"ie9\" lang=\"en\">
+/[if (gt IE 9)|!(IE)] <!--> <html lang=\"en\">
+
+%head
+  %meta{ :charset => "utf-8" }
+
+  -# Uncomment to make IE8 render like IE7
+  -# meta http-equiv="X-UA-Compatible" content="IE=7"
+
+  -# Set the viewport width to device width for mobile
+  %meta{ :name => "viewport", :content => "width=device-width, initial-scale=1.0" }
+
+  %title Readit
+  = stylesheet_link_tag "application"
+  = javascript_include_tag "vendor/custom.modernizr"
+  = csrf_meta_tag
+  %link(href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet")
+  %link(href="http://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet" type="text/css")
+
+%body
+  .fixed
+    %nav.top-bar
+      %ul.title-area
+        %li.name
+          %h1
+            %a(href="/") Readit
+        %li.toggle-topbar.menu-icon
+          %a(href="#")
+            %span
+      %section.top-bar-section
+        %ul.left
+          %li.divider
+          %li.active
+            %a(href="/") Home
+          - if current_user.present?
+            %li.divider
+            %li= link_to "Add a Link", new_link_path
+            %li.divider
+            %li= link_to "See All Your Links", links_path
+          - else
+            %li.divider
+            %li= link_to "Sign In", new_user_session_path
+            %li.divider
+            %li= link_to "Register Now!", new_user_registration_path
+        %ul.right
+          %li.has-dropdown
+            - if current_user.present?
+              %a(href="#")
+                - gravatar_hash = Digest::MD5.hexdigest(current_user.email.downcase)
+                = image_tag("http://www.gravatar.com/avatar/" + gravatar_hash, class: "userthumb-mini")
+                = current_user.username
+            - else
+              i.icon-user
+            %ul.dropdown
+              - if current_user.present?
+                %li
+                  %a(tabindex="-1" href="#") Profile
+              - else
+                %li= link_to "Sign In", new_user_session_path
+              %li.divider
+              %li
+                %a(tabindex="-1" href="#") About
+              %li
+                %a(tabindex="-1" href="#") Contact Me
+              - if current_user.present?
+                %li.divider
+                %li= link_to "Sign Out", destroy_user_session_path, method: "delete", tabindex: "-1"
+  - if flash[:notice]
+    .alert=notice
+  - if flash[:alert]
+    .alert=alert
+
+  = yield
+
+  = javascript_include_tag "application"

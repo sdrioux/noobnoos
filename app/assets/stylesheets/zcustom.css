@@ -4,6 +4,7 @@
   margin-top: 20px;
   font-size: 90px;
   font-family: 'Amaranth';
+  margin-bottom: 0;
 }
 
 .myheader {
@@ -14,10 +15,10 @@
 img.cat {
   vertical-align: bottom;
 }
-
+/*
 a, .blue {
   color: #08037E !important;
-}
+}*/
 
 .myregistration, .mysignin {
   max-width: 228px;
@@ -34,7 +35,6 @@ div.mylinkspace {
   margin-bottom: 10px;
   height: 180px;
   border-bottom: 1px solid #e5e5e5;
-  margin-left: 0;
 
 }
 
@@ -60,11 +60,6 @@ img.userthumb-mini {
   margin: -10px 0;
 }
 
-div.linkinfo {
-  width: 100px;
-  display: inline-block;
-}
-
 h1.votes {
   margin: -10px 25px;
 }
@@ -80,7 +75,6 @@ div.span1.span-link-vote {
 
 p.previewtext {
   height: 55px;
-  width: 600px;
 }
 
 /*   COMMENTS   */

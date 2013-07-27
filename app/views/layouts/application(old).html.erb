@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Readit</title>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+  <link href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" rel="stylesheet">
+  <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <link href='http://fonts.googleapis.com/css?family=Amaranth' rel='stylesheet' type='text/css'>
+</head>
+<body>
+  <div class="navbar">
+    <div class="navbar-inner">
+      <a class="brand" href="/">ReadIT</a>
+      <ul class="nav">
+        <li><a href="/">Home</a></li>
+          <% if current_user.present? %>
+            <%# user is logged in, show log out link%>
+            <li><%= link_to "Add a Link", new_link_path %></li>
+            <li><%= link_to "See All Your Links",
+              links_path %></li>
+            <%# user is not logged in, show signup and login links %>
+          <% else %>
+            <li><%= link_to 'Sign In', new_user_session_path %></li>
+            <li><%= link_to 'Register Now!', new_user_registration_path %></li>
+          <% end %>
+        </ul>
+        <ul class="nav pull-right">
+          <li id="fat-menu" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" role="button" href="#">  
+                <% if current_user.present? %>
+                  <% gravatar_hash = Digest::MD5.hexdigest(current_user.email.downcase) %>
+                  <%= image_tag("http://www.gravatar.com/avatar/" + gravatar_hash, class: "userthumb-mini") %>
+                  <%= current_user.username %>
+                <% else %>
+                  <i class="icon-user"></i>
+                  Menu
+                <% end %>
+                <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+            <% if current_user.present? %>
+              <li><a tabindex="-1" href="#">Profile</a></li>
+            <% else %>
+            <li><%= link_to 'Sign In', new_user_session_path %></li>
+            <% end %>
+              <li class="divider"></li>
+              <li><a tabindex="-1" href="#">About</a></li>
+              <li><a tabindex="-1" href="#">Contact Me</a></li>
+            <% if current_user.present? %>
+              <li class="divider"></li>
+              <%# user is logged in, show log out link and links%>
+              <li><%= link_to 'Sign Out', destroy_user_session_path, :method => :delete, tabindex: "-1" %></li>
+            <% end %>
+            </ul>
+          </li>
+        </ul>
+      </div>
+      <% if flash[:notice] %>
+          <div class="alert"><%= notice %></div>
+      <% end %>
+      <% if flash[:alert] %>
+          <div class="alert"><%= alert %></div>
+      <% end %>
+    </div>
+
+<div class="container">    
+  <%= yield %>
+</div>
+
+</body>
+</html>
