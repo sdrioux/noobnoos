@@ -1,24 +1,28 @@
-.page-header.text-center.myheader
-  %img.cat( src="catleft.jpeg" width="80px" )
-  %h1.header READIT
-  %img.cat( src="catright.jpeg" width="80px" )
+.row.myheader
+  .small-2.small-offset-2.columns
+    %img.cat( src="catleft.jpeg")
+  .small-4.columns
+    %h1.header READIT
+  .small-2.columns
+    %img.cat( src="catright.jpeg")
+  .small-2.columns
        
 -@links.sort_by {|link| link.plusminus}.reverse.each do |link|
   .row.mylinkspace
-    .small-1.columns.span-link-vote
+    .large-1.columns.span-link-vote
       %div
         = link_to raw('<i class="icon-caret-up icon-4x myvotearrow"></i>'), vote_up_link_path(link), :method => :post
       %div
         %h1.votes=link.plusminus
       %div
         = link_to raw('<i class="icon-caret-down icon-4x myvotearrow"></i>'), vote_down_link_path(link), :method => :post
-    .small-3.columns.mythumbnail
+    .large-3.small-12.columns.mythumbnail
       =link_to image_tag(link.thumbnail || "r.jpeg", class: "thumbnail mythumbnail"), link.url
-    .small-8.columns 
+    .large-8.small-12.columns 
       %h4
         %strong.linktitle=link_to link.title, link     
       %p.previewtext=link.previewtext
-      %p
+      %p.aboutlink
         -gravatar_hash = Digest::MD5.hexdigest(link.user.email.downcase)
         =image_tag("http://www.gravatar.com/avatar/" + gravatar_hash, class: "userthumb")
         %span.blue

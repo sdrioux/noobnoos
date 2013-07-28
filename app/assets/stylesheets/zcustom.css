@@ -1,12 +1,11 @@
 .header {
-  width: 300px;
-  display: inline-block;
+  /*width: 300px;*/
+  /*display: inline-block;*/
   margin-top: 20px;
-  font-size: 90px;
   font-family: 'Amaranth';
-  margin-bottom: 0;
+  text-align: center;
+  font-size: 6.5em;
 }
-
 .myheader {
   padding-bottom: 40px;
   margin-bottom: 10px;
@@ -15,6 +14,7 @@
 img.cat {
   vertical-align: bottom;
 }
+
 /*
 a, .blue {
   color: #08037E !important;
@@ -44,9 +44,10 @@ i.myvotearrow {
 }
 
 img.thumbnail.mythumbnail {
-  width: 180px;
-  margin-top: 15px;
-  max-height: 135px;
+/*  margin-top: 15px;*/
+  /*max-height: 145px;*/
+  box-shadow: 0px 0px 3px 2px #ddd;
+  /*border: 1px solid #ccc;*/
 }
 
 img.userthumb {
@@ -74,7 +75,7 @@ div.span1.span-link-vote {
 }
 
 p.previewtext {
-  height: 55px;
+  height: 55px; /*if I set this, will not be responsive*/
 }
 
 /*   COMMENTS   */
@@ -116,3 +117,42 @@ span.user strong, span.date strong {
 span.date {
   margin-left: 10px;
 }
+
+@media only screen and (max-width: 860px){
+  .header {
+    font-size: 4em;
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (max-width: 600px){
+  .header {
+    font-size: 3em;
+    margin-top: 10px;
+  }
+}
+
+@media only screen and (max-width: 500px){
+  .header {
+    font-size: 2em;
+    margin-top: 10px;
+  }
+
+  img.userthumb {
+    display: none;
+  }
+
+  img.mythumbnail {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  div.span-link-vote {
+    display: none;
+  }
+
+  p.aboutlink {
+    margin-top: 45px;
+  }
+}
+
