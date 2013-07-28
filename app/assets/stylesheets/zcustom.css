@@ -1,3 +1,7 @@
+body{
+  margin-top: 35px; /*clear fixed nav*/
+}
+
 .header {
   /*width: 300px;*/
   /*display: inline-block;*/

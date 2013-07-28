@@ -74,7 +74,7 @@
     .alert=notice
   - if flash[:alert]
     .alert=alert
-
-  = yield
+  .container
+    = yield
 
   = javascript_include_tag "application"

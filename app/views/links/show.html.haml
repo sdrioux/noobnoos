@@ -1,72 +1,61 @@
 .row
-  .span8
-    .row
-      .span8
-    .row
-      .span1.span-link-vote
-        %div
-          = link_to raw('<i class="icon-caret-up icon-4x myvotearrow"></i>'), vote_up_link_path(@link), :method => :post
-        %div
-          %h1.votes=@link.plusminus
-        %div
-          = link_to raw('<i class="icon-caret-down icon-4x myvotearrow"></i>'), vote_down_link_path(@link), :method => :post, class: 'arrow'
-      .link
-        .span3.mythumbnail
-          =link_to image_tag(@link.thumbnail || "r.jpeg", class: "thumbnail"), @link.url
-      .linkinfo
-        .span4
-          %h4
-            %strong.linktitle=link_to @link.title, @link.url
-        .span8      
-          %p=@link.description
-        .span6
-          %p
-            -gravatar_hash = Digest::MD5.hexdigest(@link.user.email.downcase)
-            =image_tag("http://www.gravatar.com/avatar/" + gravatar_hash, class: "userthumb")
-            %span.blue
-              =@link.user.username
-            | 
-            %i.icon-calendar
-            -localtime = @link.created_at-5.hours
-            = localtime.strftime("%D %I:%M %p")
-            - if current_user == @link.user
-              |
-              = link_to "Edit Link", edit_link_path(@link)
-              |
-              = link_to "Delete Link", @link, confirm: "Are you sure?",method: "delete"
+  .large-1.columns.span-link-vote
+    %div
+      = link_to raw('<i class="icon-caret-up icon-4x myvotearrow"></i>'), vote_up_link_path(@link), :method => :post
+    %div
+      %h1.votes=@link.plusminus
+    %div
+      = link_to raw('<i class="icon-caret-down icon-4x myvotearrow"></i>'), vote_down_link_path(@link), :method => :post
+  .large-3.small-12.columns.mythumbnail
+    =link_to image_tag(@link.thumbnail || "r.jpeg", class: "thumbnail mythumbnail"), @link.url
+  .large-8.small-12.columns
+    %h4
+      %strong.linktitle=link_to @link.title, @link.url     
+    %p=@link.description
+    %p
+      -gravatar_hash = Digest::MD5.hexdigest(@link.user.email.downcase)
+      =image_tag("http://www.gravatar.com/avatar/" + gravatar_hash, class: "userthumb")
+      %span.blue
+        =@link.user.username
+      | 
+      %i.icon-calendar
+      -localtime = @link.created_at-5.hours
+      = localtime.strftime("%D %I:%M %p")
+      - if current_user == @link.user
+        |
+        = link_to "Edit Link", edit_link_path(@link)
+        |
+        = link_to "Delete Link", @link, confirm: "Are you sure?",method: "delete"
+
 %div.comments
   %h4.comment-header Comments:
   - @link.comments.sort_by {|comment| comment.plusminus}.reverse.each do |comment|
     -if comment.message !=nil
       .comment.row
-        .span8
-          .row
-            .span8
-          .row
-            .span1.span-comment-vote
-              %div
-                = link_to raw('<i class="icon-caret-up icon-2x myvotearrow"></i>'), vote_up_link_comment_path(@link,comment), :method => :post
-              %div
-                %h4.votes=comment.plusminus
-              %div
-                = link_to raw('<i class="icon-caret-down icon-2x myvotearrow"></i>'), vote_down_link_comment_path(@link, comment), :method => :post
-            %div.comment-content    
-              %p
-                %span.user
-                  %strong="User:" if comment.user
-                  = comment.user.username if comment.user
-                %span.date
-                  %strong="Date:" if comment.created_at
-                  - localcommenttime = comment.created_at-5.hours if comment.created_at
-                  = localcommenttime.strftime("%D %I:%M %p") if comment.created_at
-              %div
-                %p= comment.message
+        .large-1.columns.span-comment-vote
+          %div
+            = link_to raw('<i class="icon-caret-up icon-2x myvotearrow"></i>'), vote_up_link_comment_path(@link,comment), :method => :post
+          %div
+            %h4.votes=comment.plusminus
+          %div
+            = link_to raw('<i class="icon-caret-down icon-2x myvotearrow"></i>'), vote_down_link_comment_path(@link, comment), :method => :post
+          
+        .large-11.columns.comment-content    
+          %p
+            %span.user
+              %strong="User:" if comment.user
+              = comment.user.username if comment.user
+            %span.date
+              %strong="Date:" if comment.created_at
+              - localcommenttime = comment.created_at-5.hours if comment.created_at
+              = localcommenttime.strftime("%D %I:%M %p") if comment.created_at
+          %div
+            %p= comment.message
           
 
-.container.myform
+.myform
   .row
-    .span4.offset4.well
-      %legend Add a Comment!
+    .large-4.offset-4.columns
       = form_for [@link, @comment] do |f|
         -if @comment.errors.any?
           #error_explanation
@@ -75,4 +64,4 @@
               - @comment.errors.full_messages.each do |msg|
                 %li= msg
         %div= f.text_area :message, :placeholder => "Add a comment", :autofocus => true, rows: "10", class: "field span4"
-        %div= f.submit "Add Comment", :class => 'btn btn-warning'
+        %div= f.submit "Add Comment", :class => 'button small'
