@@ -1,0 +1,16 @@
+.row
+  .small-12.columns.mysign-in-header PLEASE SIGN IN
+.row
+  .small-12.large-4.large-offset-4.columns
+    = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+      .input-container= f.email_field :email, placeholder: "Email", :autofocus => true
+      .input-container
+        = f.password_field :password, placeholder: "Password"
+      - if devise_mapping.rememberable?
+        .mycheckbox
+          = f.check_box :remember_me, class: "checkbox", checked: true
+          = f.label :remember_me
+      %ul.button-group  
+        = f.submit "Sign In", class: "button mysign-in-button-l"
+        = link_to "Sign Up", new_user_registration_path, class: "button mysign-in-button-r"
+        = link_to "Forgot your password?", new_user_password_path

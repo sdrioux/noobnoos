@@ -13,4 +13,11 @@ class User < ActiveRecord::Base
 
   has_many :links
   has_many :comments
+  has_one :profile
+
+  before_create :create_profile
+
+  def create_profile
+    self.build_profile
+  end
 end

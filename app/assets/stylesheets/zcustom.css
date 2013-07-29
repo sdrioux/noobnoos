@@ -24,12 +24,40 @@ a, .blue {
   color: #08037E !important;
 }*/
 
-.myregistration, .mysignin {
-  max-width: 228px;
+/* SIGN-IN */
+
+.mysign-in-header {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.input-container {
+  border-radius: 4px;
+  border: 2px solid #ddd;
+  margin-bottom: 10px;
+}
+
+input#user_email, input#user_password {
+  margin-bottom: 0;  /* Remove the default margin on input, move it to container */
+}
+
+.mysign-in-button-l, .mysign-in-button-r {
+  border-radius: 4px;
+  width: 46%;
+}
+
+.mysign-in-button-r {
+  float: right;
+  background-color: #13253e;
 }
 
 .myform {
   margin-top: 50px;
+}
+
+.mycheckbox label {
+  display: inline-block;
+  margin-bottom: 10px;
 }
 
 /*   LINKS   */
@@ -122,10 +150,16 @@ span.date {
   margin-left: 10px;
 }
 
-@media only screen and (max-width: 860px){
+@media only screen and (max-width: 960px){
   .header {
     font-size: 4em;
     margin-top: 10px;
+  }
+}
+
+@media only screen and (max-width: 767px){
+  div.span-link-vote {
+    display: none;
   }
 }
 
