@@ -2,13 +2,14 @@
   .small-12.columns.mysign-in-header PLEASE SIGN IN
 .row
   .small-12.large-4.large-offset-4.columns
-    = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-      .input-container= f.email_field :email, placeholder: "Email", :autofocus => true
-      .input-container
-        = f.password_field :password, placeholder: "Password"
+    = form_for(resource, :as => resource_name,:url => session_path(resource_name)) do |f|
+      .form-field.input-container
+        = f.email_field :email, label: false, placeholder: "Email", :autofocus => true
+      .form-field.input-container
+        = f.password_field :password, label: false, placeholder: "Password"
       - if devise_mapping.rememberable?
         .mycheckbox
-          = f.check_box :remember_me, class: "checkbox", checked: true
+          = f.check_box :remember_me, label: false, class: "checkbox", checked: true
           = f.label :remember_me
       %ul.button-group  
         = f.submit "Sign In", class: "button mysign-in-button-l"

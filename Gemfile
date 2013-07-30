@@ -28,7 +28,6 @@ group :assets do
   gem 'compass-rails' # you need this or you get an err
   gem 'zurb-foundation', '~> 4.0.0'
   gem 'foundation-social-web-icons-rails', git: "git://github.com/jclusso/foundation-social-web-icons-rails.git"
-  
 end
 
 gem 'jquery-rails'
