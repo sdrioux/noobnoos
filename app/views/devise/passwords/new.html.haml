@@ -1,0 +1,12 @@
+.row
+  .small-12.columns.mypassword-header Forgot your password?
+.row
+  .small-12.large-4.large-offset-4.columns
+    = form_for(resource, :as => resource_name, :url => password_path(resource_name), :html => { :method => :post }) do |f|
+      = devise_error_messages!
+      .form-field.input-container
+        = f.email_field :email, label: false, placeholder: "Email", :autofocus => true   
+      = f.submit "Send me reset password instructions", class: "button mypassword-button" 
+      %ul.button-group 
+        = link_to "Sign In", new_session_path(@user), class: "button mysign-in-button-l"
+        = link_to "Sign Up", new_user_registration_path, class: "button mysign-in-button-r"

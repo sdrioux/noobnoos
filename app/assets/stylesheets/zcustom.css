@@ -26,9 +26,10 @@ a, .blue {
 
 /* SIGN-IN */
 
-.mysign-in-header, .myregistration-header {
+.mysign-in-header, .myregistration-header,
+.mypassword-header {
   text-align: center;
-  margin: 20px 0;
+  margin: 50px 0 20px 0;
 }
 
 .input-container {
@@ -50,6 +51,12 @@ input#user_username, input#user_password_confirmation {
 .mysign-in-button-r {
   float: right;
   background-color: #13253e;
+}
+
+.mypassword-button {
+  border-radius: 4px;
+  width: 110%;
+  margin: 20px 0 20px -13px;
 }
 
 .myform {
