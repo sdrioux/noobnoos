@@ -26,7 +26,7 @@ a, .blue {
 
 /* SIGN-IN */
 
-.mysign-in-header {
+.mysign-in-header, .myregistration-header {
   text-align: center;
   margin: 20px 0;
 }
@@ -37,7 +37,8 @@ a, .blue {
   margin-bottom: 10px;
 }
 
-input#user_email, input#user_password {
+input#user_email, input#user_password,
+input#user_username, input#user_password_confirmation {
   margin-bottom: 0;  /* Remove the default margin on input, move it to container */
 }
 
