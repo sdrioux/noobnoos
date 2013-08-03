@@ -1,3 +1,11 @@
+GIT
+  remote: git://github.com/jclusso/foundation-social-web-icons-rails.git
+  revision: 68bc0cad37a953ab803f32065889028531fbeb6c
+  specs:
+    foundation-social-web-icons-rails (1.0.0)
+      railties (>= 3.1.1)
+      sass-rails (>= 3.1.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -168,6 +176,7 @@ DEPENDENCIES
   devise
   figaro
   fog
+  foundation-social-web-icons-rails!
   haml
   jquery-rails
   pg

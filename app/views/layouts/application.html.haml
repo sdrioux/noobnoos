@@ -19,7 +19,7 @@
   = stylesheet_link_tag "application"
   = javascript_include_tag "vendor/custom.modernizr"
   = csrf_meta_tag
-  %link(href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet")
+  / %link(href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet")
   %link(href="http://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet" type="text/css")
 
 %body
@@ -31,7 +31,7 @@
             %a(href="/") Readit
         %li.toggle-topbar.menu-icon
           %a(href="#")
-            %span
+            %span Menu
       %section.top-bar-section
         %ul.left
           %li.divider
@@ -55,11 +55,11 @@
                 = image_tag("http://www.gravatar.com/avatar/" + gravatar_hash, class: "userthumb-mini")
                 = current_user.username
             - else
-              i.icon-user
+              %a(href="#")
+                %i.icon-user=" Menu"
             %ul.dropdown
               - if current_user.present?
-                %li
-                  %a(tabindex="-1" href="#") Profile
+                / %li=link_to "Profile", profile_path(current_user.profile)
               - else
                 %li= link_to "Sign In", new_user_session_path
               %li.divider
@@ -70,11 +70,11 @@
               - if current_user.present?
                 %li.divider
                 %li= link_to "Sign Out", destroy_user_session_path, method: "delete", tabindex: "-1"
-  - if flash[:notice]
-    .alert=notice
-  - if flash[:alert]
-    .alert=alert
   .container
+    - if flash[:notice]
+      .alert-box=notice
+    - if flash[:alert]
+      .alert-box=alert
     = yield
 
   = javascript_include_tag "application"
