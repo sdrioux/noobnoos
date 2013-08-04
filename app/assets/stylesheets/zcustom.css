@@ -38,8 +38,12 @@ img.cat {
   margin-bottom: 10px;
 }
 
-input#user_email, input#user_password,
-input#user_username, input#user_password_confirmation {
+input, input#user_password,
+input#user_username,
+input#user_password_confirmation,
+input#link_title,
+input#link_url,
+textarea#link_description {
   margin-bottom: 0;  /* Remove the default margin on input, move it to container */
 }
 
@@ -59,10 +63,14 @@ input#user_username, input#user_password_confirmation {
 
 .mycheckbox label {
   display: inline-block;
-  margin-bottom: 10px;
 }
 
 /*   LINKS   */
+
+.mylink-button {
+  border-radius: 4px;
+  margin: 0 auto;
+}
 
 div.mylinkspace {
   padding: 0;
