@@ -19,7 +19,7 @@
   = stylesheet_link_tag "application"
   = javascript_include_tag "vendor/custom.modernizr"
   = csrf_meta_tag
-  / %link(href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet")
+  %link(href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet")
   %link(href="http://fonts.googleapis.com/css?family=Amaranth" rel="stylesheet" type="text/css")
 
 %body
@@ -70,11 +70,11 @@
               - if current_user.present?
                 %li.divider
                 %li= link_to "Sign Out", destroy_user_session_path, method: "delete", tabindex: "-1"
-  .container
-    - if flash[:notice]
-      .alert-box=notice
-    - if flash[:alert]
-      .alert-box=alert
-    = yield
+- if flash[:notice]
+  .alert-box=notice
+- if flash[:alert]
+  .alert-box=alert
+.container
+  = yield
 
   = javascript_include_tag "application"
