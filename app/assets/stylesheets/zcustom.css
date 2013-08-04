@@ -9,6 +9,7 @@ body{
 .header {
   font-family: 'Amaranth';
   font-size: 6.5em;
+  text-align: center;
 }
 .myheader {
   padding-bottom: 40px;
