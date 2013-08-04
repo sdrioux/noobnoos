@@ -165,6 +165,18 @@ span.date {
   div.span-link-vote {
     display: none;
   }
+
+  img.thumbnail.mythumbnail {
+    min-width: 220px;
+  }
+}
+
+@media only screen and (max-width: 900px) and (min-width: 767px){
+  img.thumbnail.mythumbnail {
+    margin-top: 25px;
+    margin-left: 10px;
+    min-width: 100px;
+  }
 }
 
 @media only screen and (max-width: 600px){
