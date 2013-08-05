@@ -7,6 +7,11 @@ class Link < ActiveRecord::Base
   belongs_to :user
   has_many :comments
 
+  #add to sunspot search index
+  searchable do
+    text :title
+  end
+
   #model callbacks - DO RESEARCH
   after_create :add_thumbnail
 
