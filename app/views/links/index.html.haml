@@ -1,36 +1,34 @@
 //Displays all links that the user has submitted.
 
+.row.myheader
+  %h1.header MY LINKS
+
 -@links.sort_by {|link| link.plusminus}.reverse.each do |link|
   .row.mylinkspace
-    .span1.span-link-vote
+    .large-1.columns.span-link-vote
       %div
         = link_to raw('<i class="icon-caret-up icon-4x myvotearrow"></i>'), vote_up_link_path(link), :method => :post
       %div
         %h1.votes=link.plusminus
       %div
         = link_to raw('<i class="icon-caret-down icon-4x myvotearrow"></i>'), vote_down_link_path(link), :method => :post
-    .span3.mythumbnail
+    .large-3.small-12.columns.mythumbnail
       =link_to image_tag(link.thumbnail || "r.jpeg", class: "thumbnail mythumbnail"), link.url
-    .linkinfo  
-      .span4
-        %h4
-          %strong.linktitle=link_to link.title, link
-      .span8      
-        %p.previewtext=link.previewtext
-      .span7
-        %p
-          -gravatar_hash = Digest::MD5.hexdigest(link.user.email.downcase)
-          =image_tag("http://www.gravatar.com/avatar/" + gravatar_hash, class: "userthumb")
-          %span.blue
-            =link.user.username
-          | 
-          %i.icon-calendar
-          -localtime = link.created_at-5.hours
-          = localtime.strftime("%D %I:%M %p")
-          |
-          = link_to "#{link.comments.count} comments", link
-          |
-          = link_to "Edit Link", edit_link_path(link)
+    .large-8.small-12.columns 
+      %h4
+        %strong.linktitle=link_to link.title, link     
+      %p.previewtext=link.previewtext
+      %p.aboutlink
+        -gravatar_hash = Digest::MD5.hexdigest(link.user.email.downcase)
+        =image_tag("http://www.gravatar.com/avatar/" + gravatar_hash, class: "userthumb")
+        %span.blue
+          =link.user.username
+        | 
+        %i.icon-calendar
+        -localtime = link.created_at-5.hours
+        = localtime.strftime("%D %I:%M %p")
+        |
+        = link_to "#{link.comments.count} comments", link
 
 
 = will_paginate @links, renderer: BootstrapPagination::Rails, class: "pagination pagination-centered"

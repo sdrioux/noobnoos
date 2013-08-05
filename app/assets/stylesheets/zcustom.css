@@ -2,13 +2,14 @@ body{
    /*margin-top: 35px; clear fixed nav*/
 }
 
+.container {
+  margin-top: 35px;  /*Clear fixed nav*/
+}
+
 .header {
-  /*width: 300px;*/
-  /*display: inline-block;*/
-  margin-top: 20px;
   font-family: 'Amaranth';
-  text-align: center;
   font-size: 6.5em;
+  text-align: center;
 }
 .myheader {
   padding-bottom: 40px;
@@ -19,10 +20,10 @@ img.cat {
   vertical-align: bottom;
 }
 
-/*
-a, .blue {
+
+.blue {
   color: #08037E !important;
-}*/
+}
 
 /* SIGN-IN */
 
@@ -38,8 +39,12 @@ a, .blue {
   margin-bottom: 10px;
 }
 
-input#user_email, input#user_password,
-input#user_username, input#user_password_confirmation {
+input, input#user_password,
+input#user_username,
+input#user_password_confirmation,
+input#link_title,
+input#link_url,
+textarea#link_description {
   margin-bottom: 0;  /* Remove the default margin on input, move it to container */
 }
 
@@ -65,29 +70,33 @@ input#user_username, input#user_password_confirmation {
 
 .mycheckbox label {
   display: inline-block;
-  margin-bottom: 10px;
 }
 
 /*   LINKS   */
+
+.mylink-button {
+  border-radius: 4px;
+  margin: 0 auto;
+}
 
 div.mylinkspace {
   padding: 0;
   margin-bottom: 10px;
   height: 180px;
   border-bottom: 1px solid #e5e5e5;
-
 }
 
 i.myvotearrow {
   margin-left: 20px;
   text-decoration: none;
+  color: #08037E;
 }
 
 img.thumbnail.mythumbnail {
 /*  margin-top: 15px;*/
   /*max-height: 145px;*/
   box-shadow: 0px 0px 3px 2px #ddd;
-  /*border: 1px solid #ccc;*/
+  min-width: 220px;
 }
 
 img.userthumb {
@@ -118,6 +127,9 @@ p.previewtext {
   height: 55px; /*if I set this, will not be responsive*/
 }
 
+p.aboutlink a {
+  color: #08037E;
+}
 /*   COMMENTS   */
 
 .comments {
@@ -168,6 +180,18 @@ span.date {
 @media only screen and (max-width: 767px){
   div.span-link-vote {
     display: none;
+  }
+
+  img.thumbnail.mythumbnail {
+    min-width: 220px;
+  }
+}
+
+@media only screen and (max-width: 900px) and (min-width: 767px){
+  img.thumbnail.mythumbnail {
+    margin-top: 25px;
+    margin-left: 10px;
+    min-width: 100px;
   }
 }
 
