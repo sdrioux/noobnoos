@@ -47,13 +47,13 @@
             %li= link_to "Sign In", new_user_session_path
             %li.divider
             %li= link_to "Register Now!", new_user_registration_path
-          %li.divider
-          %li
-            =form_tag root_url, method: "get" do
-              %li= text_field_tag :search, params[:search]
-              %li= submit_tag "Search", class: "button"
 
         %ul.right
+          %li.divider
+          %li.search
+            =form_tag root_url, method: "get" do
+              %li.searchfield= text_field_tag :search, params[:search]
+              %li.searchbutton= submit_tag "Search", class: "button mysearchbutton"
           %li.has-dropdown
             - if current_user.present?
               %a(href="#")

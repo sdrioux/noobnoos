@@ -25,6 +25,7 @@ img.cat {
   color: #08037E !important;
 }
 
+
 /* SIGN-IN */
 
 .mysign-in-header, .myregistration-header,
@@ -39,7 +40,7 @@ img.cat {
   margin-bottom: 10px;
 }
 
-input, input#user_password,
+input#user_email, input#user_password,
 input#user_username,
 input#user_password_confirmation,
 input#link_title,
@@ -47,6 +48,13 @@ input#link_url,
 textarea#link_description {
   margin-bottom: 0;  /* Remove the default margin on input, move it to container */
 }
+/* make search behave on minimized menu */
+li.searchfield, li.searchbutton {
+  display: inline-block;
+  margin-left: 10px;
+  margin-right: 10px;
+}
+
 
 .mysign-in-button-l, .mysign-in-button-r {
   border-radius: 4px;
