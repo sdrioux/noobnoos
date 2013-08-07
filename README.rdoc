@@ -9,14 +9,14 @@ can then browse the site and find new resources.  This app uses a gem called *th
 an up or down vote to each link.  The links that compile the most upvotes will sort to the front page.  Users can also comment on each link, 
 and the comments may also be voted upon.
 
-The app uses an API for Webthumb, a service that, when a user first creates a link, will crawl to that site, and provide the app with a picture
-of the landing page.  The server then stores the picture on my S3 server, and associates the link with a thumbnail of that picture.
+The app uses an API for *Webthumb*, a service that, when a user first creates a link, will crawl to that site, and provide the app with a picture
+of the landing page.  The server then stores the picture on my *Amazon S3* server, and associates the link with a thumbnail of that picture.
 
 Users that are not logged in to the site will be able to view links that other users have posted, however, will not be able to add links of their
 own until they are logged in.
 
 Solr search functionality has been added, and allows users to search for links based on the title of each link.  I am running a 
-WebSolr Sunspot 1.3 server on Amazon EC2.
+*WebSolr Sunspot 1.3* server on *Amazon EC2*.
 
 Next steps:
 1.  Implement webthumb API as a background job to speed up the creation of each link.
