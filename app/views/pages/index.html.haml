@@ -28,6 +28,5 @@
         |
         = link_to "#{link.comments.count} comments", link
 
-
-= foundation_paginate @links
-/ , class: "pagination pagination-centered"
+%div.pagination-centered
+  = foundation_paginate @links
