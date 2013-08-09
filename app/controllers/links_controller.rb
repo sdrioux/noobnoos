@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  before_action :authenticate_user!, only: [:vote_up, :vote_down]
+  before_filter :authenticate_user!, only: [:vote_up, :vote_down, :create]
   def show
     @link = Link.find(params[:id])
     @comment = @link.comments.build
