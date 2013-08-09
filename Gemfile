@@ -35,7 +35,7 @@ gem 'devise'
 #should fix issue with Windows 7, not being able to load bcrypt.
 gem 'bcrypt-ruby', '~> 3.0.0'
 gem 'will_paginate'
-gem 'will_paginate-bootstrap'
+gem 'foundation-will_paginate'
 gem 'thumbs_up'
 gem 'simplificator-rwebthumb'
 gem 'rwebthumb'

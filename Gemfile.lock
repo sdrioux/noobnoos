@@ -77,6 +77,7 @@ GEM
       nokogiri (~> 1.5)
       ruby-hmac
     formatador (0.2.4)
+    foundation-will_paginate (0.0.1)
     fssm (0.2.10)
     haml (4.0.3)
       tilt
@@ -170,8 +171,6 @@ GEM
     warden (1.2.1)
       rack (>= 1.0)
     will_paginate (3.0.4)
-    will_paginate-bootstrap (0.2.3)
-      will_paginate (>= 3.0.3)
     zurb-foundation (4.0.9)
       sass (>= 3.2.0)
 
@@ -187,6 +186,7 @@ DEPENDENCIES
   figaro
   fog
   foundation-social-web-icons-rails!
+  foundation-will_paginate
   haml
   jquery-rails
   pg
@@ -200,5 +200,4 @@ DEPENDENCIES
   thumbs_up
   uglifier (>= 1.0.3)
   will_paginate
-  will_paginate-bootstrap
   zurb-foundation (~> 4.0.0)

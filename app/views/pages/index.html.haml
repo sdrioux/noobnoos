@@ -29,4 +29,5 @@
         = link_to "#{link.comments.count} comments", link
 
 
-= will_paginate @links, renderer: BootstrapPagination::Rails, class: "pagination pagination-centered"
+= foundation_paginate @links
+/ , class: "pagination pagination-centered"
