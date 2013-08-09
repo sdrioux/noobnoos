@@ -1,11 +1,5 @@
 .row.myheader
-  .small-2.small-offset-2.columns
-    %img.cat( src="catleft.jpeg")
-  .small-4.columns
-    %h1.header READIT
-  .small-2.columns
-    %img.cat( src="catright.jpeg")
-  .small-2.columns
+  =image_tag("READIT_TITLE.png", class: "myheader")
        
 -@links.sort_by {|link| link.plusminus}.reverse.each do |link|
   .row.mylinkspace

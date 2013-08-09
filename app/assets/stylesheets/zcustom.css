@@ -1,7 +1,3 @@
-body{
-   /*margin-top: 35px; clear fixed nav*/
-}
-
 .container {
   margin-top: 35px;  /*Clear fixed nav*/
 }
@@ -11,9 +7,12 @@ body{
   font-size: 6.5em;
   text-align: center;
 }
-.myheader {
-  padding-bottom: 40px;
-  margin-bottom: 10px;
+img.myheader {
+/*  padding-bottom: 40px;
+  margin-bottom: 10px;*/
+  display: block;
+  margin: 0 auto;
+  width: 600px;
 }
 
 img.cat {
