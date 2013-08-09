@@ -64,7 +64,11 @@ Readit::Application.routes.draw do
       end
     end
   end
+
+  match  '/links/:id/favorite' => 'links#favorite'
+  
   root :to => 'pages#index'
+  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
 
   # See how all your routes lay out with "rake routes"
 

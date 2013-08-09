@@ -13,6 +13,6 @@ class User < ActiveRecord::Base
 
   has_many :links
   has_many :comments
-  has_one :profile
+  has_many :favorites
 
 end

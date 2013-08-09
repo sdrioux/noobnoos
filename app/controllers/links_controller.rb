@@ -58,6 +58,15 @@ class LinksController < ApplicationController
     end
   end
 
+  def favorite
+    if Favorite.exists?(user_id: current_user.id, link_id: params[:id]) == ""
+      Favorite.where(user_id: current_user.id, link_id: params[:id]).destroy(params[:id])
+    else
+      Favorite.create(user_id: current_user.id, link_id: params[:id])
+    end
+    redirect_to :back
+  end
+
   def destroy
     @link = Link.find(params[:id])
     @link.destroy

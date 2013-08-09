@@ -27,6 +27,8 @@
         = localtime.strftime("%D %I:%M %p")
         |
         = link_to "#{link.comments.count} comments", link
+        |
+        = link_to_function raw('<i class="icon-star icon-large icon-muted"></i>'), "$.ajax({url:'/links/#{link.id}/favorite', type: 'PUT'});"
 
 %div.pagination-centered
   = foundation_paginate @links

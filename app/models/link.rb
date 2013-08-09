@@ -6,6 +6,7 @@ class Link < ActiveRecord::Base
   attr_accessible :title, :url, :description, :thumbnail, :previewtext
   belongs_to :user
   has_many :comments
+  has_many :favorites
 
   #add to sunspot search index
   searchable do

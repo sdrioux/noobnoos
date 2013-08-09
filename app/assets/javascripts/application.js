@@ -16,3 +16,12 @@
 //= require_tree .
 
 $(document).foundation();
+
+$(document).ready(function(){
+
+  $('.icon-star').mouseenter(function(){
+    $(this).addClass('icon-spin').mouseleave(function(){
+      $(this).removeClass('icon-spin');
+    });
+  })
+})
