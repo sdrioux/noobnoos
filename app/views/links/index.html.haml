@@ -29,10 +29,8 @@
         |
         = link_to "#{link.comments.count} comments", link
         |
-        -if Favorite.exists?(user_id: current_user.id, link_id: link.id)
-          = link_to_function raw('<i class="icon-star icon-large"></i>'), "$.ajax({url:'/links/#{link.id}/favorite', type: 'PUT'});"
-        -else 
-          = link_to_function raw('<i class="icon-star icon-large icon-muted"></i>'), "$.ajax({url:'/links/#{link.id}/favorite', type: 'PUT'});"
+        = show_favorite_star(current_user, link)
+
 
 %div.pagination-centered
   = foundation_paginate @links
