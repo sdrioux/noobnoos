@@ -1,8 +1,7 @@
-//Displays all links that the user has submitted.
-
+/ %h2=params
 .row.myheader
-  %h1.header MY LINKS
-
+  =image_tag("NOOBNOOS_TITLE.png", class: "myheader")
+       
 -@links.sort_by {|link| link.plusminus}.reverse.each do |link|
   .row.mylinkspace
     .large-1.columns.span-link-vote
@@ -29,5 +28,11 @@
         = localtime.strftime("%D %I:%M %p")
         |
         = link_to "#{link.comments.count} comments", link
+        |
+        -if Favorite.exists?(user_id: current_user.id, link_id: link.id)
+          = link_to_function raw('<i class="icon-star icon-large"></i>'), "$.ajax({url:'/links/#{link.id}/favorite', type: 'PUT'});"
+        -else 
+          = link_to_function raw('<i class="icon-star icon-large icon-muted"></i>'), "$.ajax({url:'/links/#{link.id}/favorite', type: 'PUT'});"
+
 %div.pagination-centered
   = foundation_paginate @links

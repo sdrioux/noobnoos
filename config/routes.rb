@@ -51,7 +51,6 @@ Readit::Application.routes.draw do
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
   resources :pages
-  resources :profiles
   resources :links do
     member do
       post :vote_up
@@ -66,8 +65,9 @@ Readit::Application.routes.draw do
   end
 
   match  '/links/:id/favorite' => 'links#favorite'
-  
-  root :to => 'pages#index'
+  get '/mylinks' => 'links#userlinks', as: 'user_links'
+  get '/favorites' => 'links#favorites', as: 'favorite_links'
+  root :to => 'links#index'
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
 
   # See how all your routes lay out with "rake routes"

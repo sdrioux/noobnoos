@@ -1,7 +1,5 @@
-%h2=params
-.row.myheader
-  =image_tag("NOOBNOOS_TITLE.png", class: "myheader")
-       
+%h1.header MY FAVORITES
+
 -@links.sort_by {|link| link.plusminus}.reverse.each do |link|
   .row.mylinkspace
     .large-1.columns.span-link-vote

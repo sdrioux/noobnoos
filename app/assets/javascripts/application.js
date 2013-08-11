@@ -24,4 +24,8 @@ $(document).ready(function(){
       $(this).removeClass('icon-spin');
     });
   })
+
+  $('.icon-star').click(function(){
+    $(this).toggleClass('icon-muted');
+  })
 })

@@ -13,6 +13,16 @@ class User < ActiveRecord::Base
 
   has_many :links
   has_many :comments
-  has_many :favorites
+  has_many :links
+
+  def favorites
+    favorites = []
+    Favorite.where(user_id: self.id).each do |favorite|
+      favorites << favorite.link_id
+    end
+    
+  return favorites
+
+  end
 
 end
