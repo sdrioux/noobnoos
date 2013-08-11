@@ -82,6 +82,7 @@ GEM
     haml (4.0.3)
       tilt
     hike (1.2.3)
+    hirb (0.7.1)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (3.0.2)
@@ -188,6 +189,7 @@ DEPENDENCIES
   foundation-social-web-icons-rails!
   foundation-will_paginate
   haml
+  hirb
   jquery-rails
   pg
   rails (= 3.2.13)
