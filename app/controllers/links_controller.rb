@@ -99,7 +99,7 @@ class LinksController < ApplicationController
   def favorites
     params[:page] ||=1
     params[:per_page] ||=5
-    @links = Link.where("Links.id = ? ", current_user.favorites).plusminus_tally.order('plusminus_tally ASC').page(params[:page].to_i).per_page(params[:per_page].to_i)
+    @links = Link.where("Links.id IN (?) ", current_user.favorites).plusminus_tally.order('plusminus_tally ASC').page(params[:page].to_i).per_page(params[:per_page].to_i)
     render action: 'index'
   end
   
