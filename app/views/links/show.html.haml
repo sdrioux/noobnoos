@@ -12,7 +12,7 @@
     %h4
       %strong.linktitle=link_to @link.title, @link.url     
     %p=@link.description
-    %p
+    %p.aboutlink
       -gravatar_hash = Digest::MD5.hexdigest(@link.user.email.downcase)
       =image_tag("http://www.gravatar.com/avatar/" + gravatar_hash, class: "userthumb")
       %span.blue
@@ -26,6 +26,11 @@
         = link_to "Edit Link", edit_link_path(@link)
         |
         = link_to "Delete Link", @link, confirm: "Are you sure?",method: "delete"
+        |
+        -if Favorite.exists?(user_id: current_user.id, link_id: @link.id)
+          = link_to_function raw('<i class="icon-star icon-large"></i>'), "$.ajax({url:'/links/#{@link.id}/favorite', type: 'PUT'});"
+        -else 
+          = link_to_function raw('<i class="icon-star icon-large icon-muted"></i>'), "$.ajax({url:'/links/#{@link.id}/favorite', type: 'PUT'});"
 
 %div.comments
   %h4.comment-header Comments:
