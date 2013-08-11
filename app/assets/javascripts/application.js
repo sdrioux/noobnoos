@@ -18,13 +18,13 @@
 $(document).foundation();
 
 $(document).ready(function(){
-
+  //spin 'favorite' star when hover.
   $('.icon-star').mouseenter(function(){
     $(this).addClass('icon-spin').mouseleave(function(){
       $(this).removeClass('icon-spin');
     });
   })
-
+  // clicking on the 'favorite' star will toggle it from blue to grey.
   $('.icon-star').click(function(){
     $(this).toggleClass('icon-muted');
   })

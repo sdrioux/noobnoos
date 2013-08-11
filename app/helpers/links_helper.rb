@@ -1,5 +1,13 @@
 module LinksHelper
 
+  def vote_down_button(link)
+    link_to content_tag(:i, class: "icon-caret-down icon-4x myvotearrow"), vote_down_link_path(link), :method => :post
+  end
+
+  def vote_up_button(link)
+    link_to content_tag(:i, class: "icon-caret-up icon-4x myvotearrow"), vote_up_link_path(link), :method => :post
+  end
+
   def show_favorite_star(user, link)
     if user == nil
       return nil
