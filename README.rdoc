@@ -1,4 +1,4 @@
-== n00b n00s[link:n00bn00s.herokuapp.com] (formerly known as readit)
+== n00bn00s[link:n00bn00s.herokuapp.com] (formerly known as readit)
 
 I am currently a student at a 10 week Web Development bootcamp known as MakerSquare[link:http://www.themakersquare.com].
 
