@@ -3,7 +3,7 @@
   =image_tag("NOOBNOOS_TITLE.png", class: "myheader")
        
 -@links.sort_by {|link| link.plusminus}.reverse.each do |link|
-  .row.mylinkspace
+  .row.mylinkspace.multiple
     .small-2.columns.span-link-vote
       = link_to vote_up_link_path(link), :method => :post do
         %i.icon-caret-up.icon-4x.myvotearrow
