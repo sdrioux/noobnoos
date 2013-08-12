@@ -1,10 +1,9 @@
 .container {
   margin-top: 35px;  /*Clear fixed nav*/
+  min-width: 1200px;
 }
 
-
 .header {
-  font-family: 'Amaranth';
   font-size: 6.5em;
   text-align: center;
 }
@@ -96,19 +95,25 @@ div.mylinkspace {
   margin-bottom: 10px;
   height: 180px;
   border-bottom: 1px solid #e5e5e5;
+  max-width: 75em;
+  font-family: "Fauna One";
 }
 
 i.myvotearrow {
   margin-left: 20px;
   text-decoration: none;
   color: #08037E;
+  font-size: 3.5em;
+}
+
+div.small-5.columns.mythumbnail {
+  min-width: 185px;
 }
 
 img.thumbnail.mythumbnail {
-/*  margin-top: 15px;*/
-  /*max-height: 145px;*/
-  box-shadow: 0px 0px 3px 2px #ddd;
-  min-width: 220px;
+  box-shadow: 0px 0px 1px 0px #000;
+  min-width: 110px;
+  margin-top: 2px;
 }
 
 img.userthumb {
@@ -124,19 +129,26 @@ img.userthumb-mini {
 
 h1.votes {
   margin: -10px 25px;
+  font-size: 35px;
 }
 
-div.span1.span-link-vote {
-  margin-right: 20px;
-  margin-top: 20px;
+div.span-link-vote {
+  margin-right: -20px;
+  margin-top: 10px;
+}
+
+.link:after {
+  content: "";
 }
 
 .linktitle a {
   color: #08037E;
+  font-family: "Antic";
 }
 
 p.previewtext {
   height: 55px; /*if I set this, will not be responsive*/
+  font-size: .8em;
 }
 
 p.aboutlink a {
@@ -182,63 +194,7 @@ span.date {
   margin-left: 10px;
 }
 
-@media only screen and (max-width: 960px){
-  .header {
-    font-size: 4em;
-    margin-top: 10px;
-  }
-}
-
-@media only screen and (max-width: 767px){
-  div.span-link-vote {
-    display: none;
-  }
-
-  img.thumbnail.mythumbnail {
-    min-width: 220px;
-  }
-}
-
-@media only screen and (max-width: 900px) and (min-width: 767px){
-  img.thumbnail.mythumbnail {
-    margin-top: 25px;
-    margin-left: 10px;
-    min-width: 100px;
-  }
-}
-
-@media only screen and (max-width: 600px){
-  .header {
-    font-size: 3em;
-    margin-top: 10px;
-  }
-}
-
-@media only screen and (max-width: 500px){
-  .header {
-    font-size: 2em;
-    margin-top: 10px;
-  }
-
-  img.userthumb {
-    display: none;
-  }
-
-  img.mythumbnail {
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
-
-  div.span-link-vote {
-    display: none;
-  }
-
-  p.aboutlink {
-    margin-top: 45px;
-  }
-}
-
-
 .top-bar-section ul li a:hover{
   background-color: #333 !important;
 }
+

@@ -1,5 +1,5 @@
 class LinksController < ApplicationController
-  before_filter :authenticate_user!, only: [:vote_up, :vote_down, :create]
+  before_filter :authenticate_user!, only: [:vote_up, :vote_down, :create, :favorite]
 
   # ALL LINKS
   def index
