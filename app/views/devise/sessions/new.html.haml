@@ -1,7 +1,7 @@
 .row
-  .small-12.columns.mysign-in-header PLEASE SIGN IN
+  .small-24.columns.mysign-in-header PLEASE SIGN IN
 .row
-  .small-12.large-4.large-offset-4.columns
+  .small-24.large-8.large-offset-8.columns
     = form_for(resource, :as => resource_name,:url => session_path(resource_name)) do |f|
       .form-field.input-container
         = f.email_field :email, label: false, placeholder: "Email", :autofocus => true
