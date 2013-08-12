@@ -11,10 +11,10 @@
         %h1.votes=link.plusminus
       = link_to vote_down_link_path(link), :method => :post do
         %i.icon-caret-down.icon-4x.myvotearrow
-    .link
+    .link_border.small-19.columns
       .small-5.columns.mythumbnail
         =link_to image_tag(link.thumbnail, class: "thumbnail mythumbnail"), link.url
-      .small-17.columns 
+      .small-13.columns.small-offset-2
         %h5
           %strong.linktitle=link_to link.title, link     
         %p.previewtext=link.previewtext
@@ -31,6 +31,10 @@
           = link_to "#{link.comments.count} comments", link
           |
           = show_favorite_star(current_user, link)
+      .small-1.columns
+    .small-2.columns
+
+
 
 
 %div.pagination-centered

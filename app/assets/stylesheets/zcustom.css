@@ -99,8 +99,12 @@ div.mylinkspace {
 }
 
 div.mylinkspace.multiple {
-  border-bottom: 1px solid #e5e5e5;
   height: 180px;
+}
+
+.link_border {
+  overflow: hidden;
+  border-bottom: 1px solid #e5e5e5;
 }
 
 i.myvotearrow {
@@ -139,10 +143,6 @@ h1.votes {
 div.span-link-vote {
   margin-right: -20px;
   margin-top: 10px;
-}
-
-.link:after {
-  content: "";
 }
 
 .linktitle a {
