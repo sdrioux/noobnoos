@@ -35,21 +35,19 @@
       %section.top-bar-section
         %ul.left
           %li.divider
-          %li
-            %a(href="/") Home
+          = nav_link "Home", root_path
           - if current_user.present?
             %li.divider
-            %li= link_to "Add a Link", new_link_path
+            = nav_link "Add a Link", new_link_path
             %li.divider
-            %li= link_to "See All Your Links", links_path
+            = nav_link "See All Your Links", links_path
             %li.divider
-            %li= link_to "Favorites", favorite_links_path
+            = nav_link "Favorites", favorite_links_path
           - else
             %li.divider
-            %li= link_to "Sign In", new_user_session_path
+            = nav_link "Sign In", new_user_session_path
             %li.divider
-            %li= link_to "Register Now!", new_user_registration_path
-
+            = nav_link "Register Now!", new_user_registration_path
         %ul.right
           %li.divider
           %li.search

@@ -14,4 +14,12 @@ module LinksHelper
     end
   end
 
+  def nav_link(title, link_path)
+    link_classes = current_page?(link_path) ? 'active' : ''
+
+    content_tag(:li, class: link_classes) do
+      link_to title, link_path
+    end
+  end
+
 end
