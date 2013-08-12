@@ -1,4 +1,4 @@
-== READIT (reddit clone)
+== n00b n00s (formerly known as readit)
 
 I am currently a student at a 10 week Web Development bootcamp known as MakerSquare[link:http://www.themakersquare.com].
 
