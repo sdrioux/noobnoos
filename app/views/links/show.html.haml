@@ -33,39 +33,16 @@
 
 %div.comments
   %h4.comment-header Comments:
-  - @link.comments.sort_by {|comment| comment.plusminus}.reverse.each do |comment|
-    -if comment.message !=nil
-      .comment.row
-        .large-2.columns.span-comment-vote
-          %div
-            = link_to raw('<i class="icon-caret-up icon-2x myvotearrow"></i>'), vote_up_link_comment_path(@link,comment), :method => :post
-          %div
-            %h4.votes=comment.plusminus
-          %div
-            = link_to raw('<i class="icon-caret-down icon-2x myvotearrow"></i>'), vote_down_link_comment_path(@link, comment), :method => :post
-          
-        .large-22.columns.comment-content    
-          %p
-            %span.user
-              %strong="User:" if comment.user
-              = comment.user.username if comment.user
-            %span.date
-              %strong="Date:" if comment.created_at
-              - localcommenttime = comment.created_at-5.hours if comment.created_at
-              = localcommenttime.strftime("%D %I:%M %p") if comment.created_at
-          %div
-            %p= comment.message
-          
-
+  = render :partial => "comment", locals: {link: @link}, collection: @comments
 .myform
   .row
     .large-8.offset-8.columns
-      = form_for [@link, @comment] do |f|
-        -if @comment.errors.any?
+      = form_for([@link, @new_comment], :remote => true) do |f|
+        -if @new_comment.errors.any?
           #error_explanation
-            %h2= pluralize(@comment.errors.count, "error") + "prohibited this comment from being saved:"
+            %h2= pluralize(@new_comment.errors.count, "error") + "prohibited this comment from being saved:"
             %ul
-              - @comment.errors.full_messages.each do |msg|
+              - @new_comment.errors.full_messages.each do |msg|
                 %li= msg
         %div= f.text_area :message, :placeholder => "Add a comment", :autofocus => true, rows: "10", class: "field span4"
         %div= f.submit "Add Comment", :class => 'button small'

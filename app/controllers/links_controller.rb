@@ -21,7 +21,8 @@ class LinksController < ApplicationController
   # SINGLE LINK
   def show
     @link = Link.find(params[:id])
-    @comment = @link.comments.build
+    @comments = @link.comments.sort_by {|comment| comment.plusminus}.reverse
+    @new_comment = @link.comments.build
   end
 
   # NEW LINK

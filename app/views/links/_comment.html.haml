@@ -1,0 +1,21 @@
+-if comment.message !=nil
+  .comment.row
+    .large-2.columns.span-comment-vote
+      %div
+        = link_to raw('<i class="icon-caret-up icon-2x myvotearrow"></i>'), vote_up_link_comment_path(link,comment), :method => :post
+      %div
+        %h4.votes=comment.plusminus
+      %div
+        = link_to raw('<i class="icon-caret-down icon-2x myvotearrow"></i>'), vote_down_link_comment_path(link, comment), :method => :post
+      
+    .large-22.columns.comment-content    
+      %p
+        %span.user
+          %strong="User:" if comment.user
+          = comment.user.username if comment.user
+        %span.date
+          %strong="Date:" if comment.created_at
+          - localcommenttime = comment.created_at-5.hours if comment.created_at
+          = localcommenttime.strftime("%D %I:%M %p") if comment.created_at
+        %div
+          %p= comment.message

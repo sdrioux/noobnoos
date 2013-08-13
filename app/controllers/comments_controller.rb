@@ -3,6 +3,7 @@ before_filter :authenticate_user!
 
   def create
     @comment = current_user.comments.create(params[:comment].merge(link_id: params[:link_id]))
+    format.js { render :layout => false}
     redirect_to :back
   end
 
