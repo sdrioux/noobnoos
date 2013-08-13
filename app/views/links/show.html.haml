@@ -1,4 +1,4 @@
-.row.mylinkspace
+.row.show.mylinkspace
   .small-2.columns.span-link-vote
     = link_to vote_up_link_path(@link), :method => :post do
       %i.icon-caret-up.icon-4x.myvotearrow
@@ -7,9 +7,9 @@
     = link_to vote_down_link_path(@link), :method => :post do
       %i.icon-caret-down.icon-4x.myvotearrow
   .link
-    .small-5.columns.mythumbnail
-      =link_to image_tag(@link.thumbnail, class: "thumbnail mythumbnail"), @link.url
-    .small-17.columns
+    .small-8.columns.mythumbnail
+      =link_to image_tag(@link.thumbnail, class: "thumbnail mythumbnail show"), @link.url
+    .small-14.columns
       %h4
         %strong.linktitle=link_to @link.title, @link.url     
       %p=@link.description
@@ -30,19 +30,21 @@
           |
           = show_favorite_star(current_user, 
             @link)
-
-%div.comments
-  %h4.comment-header Comments:
-  = render :partial => "comment", locals: {link: @link}, collection: @comments
-.myform
-  .row
-    .large-8.offset-8.columns
-      = form_for([@link, @new_comment], :remote => true) do |f|
-        -if @new_comment.errors.any?
-          #error_explanation
-            %h2= pluralize(@new_comment.errors.count, "error") + "prohibited this comment from being saved:"
-            %ul
-              - @new_comment.errors.full_messages.each do |msg|
-                %li= msg
-        %div= f.text_area :message, :placeholder => "Add a comment", :autofocus => true, rows: "10", class: "field span4"
-        %div= f.submit "Add Comment", :class => 'button small'
+.row.mylinkspace
+  .small-13.columns.comments
+    %h4.comment-header Comments:
+    = render :partial => "comment", locals: {link: @link}, collection: @comments
+  .small-11.columns.myform
+    .row
+      .large-20.columns
+        = form_for([@link, @new_comment], :remote => true) do |f|
+          -if @new_comment.errors.any?
+            #error_explanation
+              %h2= pluralize(@new_comment.errors.count, "error") + "prohibited this comment from being saved:"
+              %ul
+                - @new_comment.errors.full_messages.each do |msg|
+                  %li= msg
+          %div= f.text_area :message, :placeholder => "Add a comment!", :autofocus => true, rows: "14", class: "small-16 columns"
+          .row
+            .small-12.columns.small-offset-4
+              %div= f.submit "Add Comment", :class => 'button small'

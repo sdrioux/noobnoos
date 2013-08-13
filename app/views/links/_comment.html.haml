@@ -1,14 +1,14 @@
 -if comment.message !=nil
   .comment.row
-    .large-2.columns.span-comment-vote
+    .small-2.columns.span-comment-vote
       %div
-        = link_to raw('<i class="icon-caret-up icon-2x myvotearrow"></i>'), vote_up_link_comment_path(link, comment), :method => :post
+        = link_to raw('<i class="icon-caret-up icon-large myvotearrow"></i>'), vote_up_link_comment_path(link, comment), :method => :post
       %div
         %h4.votes=comment.plusminus
       %div
-        = link_to raw('<i class="icon-caret-down icon-2x myvotearrow"></i>'), vote_down_link_comment_path(link, comment), :method => :post
+        = link_to raw('<i class="icon-caret-down icon-large myvotearrow"></i>'), vote_down_link_comment_path(link, comment), :method => :post
       
-    .large-22.columns.comment-content    
+    .small-22.columns.comment-content    
       %p
         %span.user
           %strong="User:" if comment.user

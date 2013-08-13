@@ -98,6 +98,10 @@ div.mylinkspace {
   font-family: "Fauna One";
 }
 
+div.show.mylinkspace {
+  height: 300px;
+}
+
 div.mylinkspace.multiple {
   height: 180px;
 }
@@ -108,10 +112,15 @@ div.mylinkspace.multiple {
 }
 
 i.myvotearrow {
-  margin-left: 20px;
+  margin-left: 19px;
   text-decoration: none;
   color: #08037E;
   font-size: 3.5em;
+}
+
+i.icon-large.myvotearrow {
+  font-size: 1.5em;
+  margin-left: 23px;
 }
 
 div.small-5.columns.mythumbnail {
@@ -122,6 +131,10 @@ img.thumbnail.mythumbnail {
   box-shadow: 0px 0px 1px 0px #000;
   min-width: 220px;
   margin-top: 2px;
+}
+
+img.show.mythumbnail {
+  min-width: 400px;
 }
 
 img.userthumb {
@@ -174,20 +187,23 @@ div.span1.span-comment-vote {
 }
 
 .comment-content {
-  margin-top: 8px;
+  margin-top: 5px;
 }
 
-.comment {
-  margin-left: 20px;
+.comment.row {
   margin-bottom: 40px;
 }
 
 .comment p {
   margin-bottom: 3px;
+
 }
 
 h4.votes {
-  margin: -10px 28px;
+  margin: -10px 27.5px;
+  font-size: 1.2em;
+  line-height: 1.7em;
+
 }
 
 span.user strong, span.date strong {
