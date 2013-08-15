@@ -28,4 +28,15 @@ $(document).ready(function(){
   $('.icon-star').click(function(){
     $(this).toggleClass('icon-muted');
   })
-})
+
+  //fix the side nav if you start scrolling down.
+  $(window).scroll(function(){
+
+    if ($(window).scrollTop() >= 200){
+      $('.tagcloud').css("position", "fixed").css("left", "64.1em").css("top", "103px").css("width", "186px")
+    } else {
+      $('.tagcloud').css("position", "static");
+    }
+    // $('.tagcloud').css("top", Math.max(150,100-$(this).scrollTop()));
+  });
+});

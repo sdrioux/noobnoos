@@ -1,7 +1,8 @@
+/ %h2=params
 .row
   .small-24.columns.mysign-in-header ADD A LINK!
 .row.myform
-  .small-24.large-12.columns.large-offset-6
+  .small-24.large-14.columns.large-offset-6
     =form_for(@link) do |f|
       -if @link.errors.any?
         #error_explanation
@@ -9,14 +10,18 @@
           %ul
             - @link.errors.full_messages.each do |msg|
               %li= msg
-      .form-field.input-container
-        = f.text_field :title, :placeholder => "Title", :autofocus => true
-      .form-field.input-container
-        = f.text_field :url, :placeholder => "Link"
-      .form-field.input-container
-        = f.text_area :description, :placeholder => "Description", rows: "10"
       .row
-        .small-12.columns.small-offset-8
+        .large-20.columns
+          .form-field.input-container.large-24.columns
+            = f.text_field :title, :placeholder => "Title", :autofocus => true
+          .form-field.input-container.large-24.columns
+            = f.text_field :url, :placeholder => "Link"
+          .form-field.input-container.large-24.columns
+            = f.text_area :description, :placeholder => "Description", rows: "10"
+        .form-field.input-container.large-4.columns.tags
+          = collection_select :link, :tag_ids, Tag.all(order: "name ASC"), :id, :name, {include_blank: true}, { :multiple => true, :class => :selectTags}
+      .row
+        .small-24.columns.small-offset-7
           = f.submit "Add Link", :class => 'button mylink-button'
   / = render "devise/shared/links"
 

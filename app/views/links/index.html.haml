@@ -1,40 +1,46 @@
 / %h2=params
 .row.myheader
   =image_tag("NOOBNOOS_TITLE.png", class: "myheader")
-       
--@links.sort_by {|link| link.plusminus}.reverse.each do |link|
-  .row.mylinkspace.multiple
-    .small-2.columns.span-link-vote
-      = link_to vote_up_link_path(link), :method => :post do
-        %i.icon-caret-up.icon-4x.myvotearrow
-      %div
-        %h1.votes=link.plusminus
-      = link_to vote_down_link_path(link), :method => :post do
-        %i.icon-caret-down.icon-4x.myvotearrow
-    .link_border.small-19.columns
-      .small-5.columns.mythumbnail
-        =link_to image_tag(link.thumbnail, class: "thumbnail mythumbnail"), link.url
-      .small-17.columns.small-offset-2
-        %h5
-          %strong.linktitle=link_to link.title, link     
-        %p.previewtext=link.previewtext
-        %p.aboutlink
-          -gravatar_hash = Digest::MD5.hexdigest(link.user.email.downcase)
-          =image_tag("http://www.gravatar.com/avatar/" + gravatar_hash, class: "userthumb")
-          %span.blue
-            =link.user.username
-          | 
-          %i.icon-calendar
-          -localtime = link.created_at-5.hours
-          = localtime.strftime("%D %I:%M %p")
-          |
-          = link_to "#{link.comments.count} comments", link
-          |
-          = show_favorite_star(current_user, link)
-    .small-2.columns
+.row
+  .small-19.columns
+    -@links.sort_by {|link| link.plusminus}.reverse.each do |link|
+      .row.mylinkspace.multiple
+        .small-2.columns.span-link-vote
+          = link_to vote_up_link_path(link), :method => :post do
+            %i.icon-caret-up.icon-4x.myvotearrow
+          %div
+            %h1.votes=link.plusminus
+          = link_to vote_down_link_path(link), :method => :post do
+            %i.icon-caret-down.icon-4x.myvotearrow
+        .link_border.small-22.columns
+          .small-5.columns.mythumbnail
+            =link_to image_tag(link.thumbnail, class: "thumbnail mythumbnail"), link.url
+          .small-16.columns.small-offset-2
+            %h5
+              %strong.linktitle=link_to link.title, link    
+            %p.tags=raw link.tags.map(&:name).map { |t| link_to t, tag_path(t)}.join(' // ') 
+            %p.previewtext=link.previewtext
+            %p.aboutlink
+              -gravatar_hash = Digest::MD5.hexdigest(link.user.email.downcase)
+              =image_tag("http://www.gravatar.com/avatar/" + gravatar_hash, class: "userthumb")
+              %span.blue
+                =link.user.username
+              | 
+              %i.icon-calendar
+              -localtime = link.created_at-5.hours
+              = localtime.strftime("%D %I:%M %p")
+              |
+              = link_to "#{link.comments.count} comments", link
+              |
+              = show_favorite_star(current_user, link)
+  .small-4.columns.small-offset-1.tagcloud
+    .tag.tag-title
+      Tags
+    - Tag.all.map(&:name).each do |t|
+      .tag
+        = link_to t, tag_path(t)
+  .row
+    %div.pagination-centered
+      = foundation_paginate(@links)
 
 
-
-
-%div.pagination-centered
-  = foundation_paginate @links

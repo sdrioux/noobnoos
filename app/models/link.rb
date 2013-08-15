@@ -3,17 +3,18 @@ class Link < ActiveRecord::Base
 
   acts_as_voteable
 
-  attr_accessible :title, :url, :description, :thumbnail, :previewtext
+  attr_accessible :title, :url, :description, :thumbnail, :previewtext, :tag_ids
   belongs_to :user
   has_many :comments
   has_many :favorites
+  has_many :taggings
+  has_many :tags, through: :taggings
 
   #add to sunspot search index
   searchable do
     text :title
   end
 
-  #model callbacks - DO RESEARCH
   after_create :add_thumbnail
 
   after_create :add_preview_text
@@ -52,6 +53,28 @@ class Link < ActiveRecord::Base
       preview+="..."
       self.previewtext = preview
       self.save
+    end
+  end
+
+  # TAGGING CATEGORIES
+  def self.tag_counts
+    Tag.select("tags.*, count(taggings.tag_id) AS COUNT").joins(:taggings).group("taggings.tag_id")
+  end
+
+  def tag_list=(names)
+    self.tags = names.split(",").map do |n|
+      Tag.where(name: n.strip).first_or_create!
+    end
+  end
+
+  def tag_ids=(tag_ids)
+    tag_ids.each do |tag_id|
+      if self.persisted?
+        self.taggings.destroy_all
+        self.taggings.create(tag_id: tag_id) unless tag_id.blank?
+      else
+        self.taggings.build(tag_id: tag_id)
+      end
     end
   end
 end

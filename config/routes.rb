@@ -67,6 +67,7 @@ Readit::Application.routes.draw do
   match  '/links/:id/favorite' => 'links#favorite'
   get '/mylinks' => 'links#userlinks', as: 'user_links'
   get '/favorites' => 'links#favorites', as: 'favorite_links'
+  get '/tags/:id'  => 'links#taglinks', as: 'tag'
   root :to => 'links#index'
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
 

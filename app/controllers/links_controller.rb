@@ -33,7 +33,7 @@ class LinksController < ApplicationController
   # CREATE LINK 
   def create
     @link = Link.new(params[:link])
-    @link.user = current_user || "none"
+    @link.user = current_user
 
     if @link.save
       redirect_to @link
@@ -63,6 +63,14 @@ class LinksController < ApplicationController
     params[:per_page] ||=5
     # Only show the links that the current user has submitted, in order of upvote count.
     @links = Link.where(user_id: current_user.id).plusminus_tally.order('plusminus_tally ASC').page(params[:page].to_i).per_page(params[:per_page].to_i)
+    render action: 'index'
+  end
+
+  def taglinks
+    params[:page] ||=1
+    params[:per_page] ||=5
+
+    @links = Tag.find_by_name(params[:id]).links.plusminus_tally.order('plusminus_tally ASC').page(params[:page].to_i).per_page(params[:per_page].to_i)
     render action: 'index'
   end
 

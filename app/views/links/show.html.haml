@@ -1,3 +1,4 @@
+/ %h2=params
 .row.show.mylinkspace
   .small-2.columns.span-link-vote
     = link_to vote_up_link_path(@link), :method => :post do
@@ -7,11 +8,12 @@
     = link_to vote_down_link_path(@link), :method => :post do
       %i.icon-caret-down.icon-4x.myvotearrow
   .link
-    .small-8.columns.mythumbnail
+    .small-9.columns.mythumbnail
       =link_to image_tag(@link.thumbnail, class: "thumbnail mythumbnail show"), @link.url
-    .small-14.columns
+    .small-13.columns
       %h4
         %strong.linktitle=link_to @link.title, @link.url     
+      %p.tags=raw @link.tags.map(&:name).map { |t| link_to t, tag_path(t)}.join(' // ') 
       %p=@link.description
       %p.aboutlink
         -gravatar_hash = Digest::MD5.hexdigest(@link.user.email.downcase)
