@@ -33,8 +33,8 @@
               = link_to "#{link.comments.count} comments", link
               |
               = show_favorite_star(current_user, link)
-  %div.pagination-centered
-    = foundation_paginate(@links)
+    %div.pagination-centered
+      = foundation_paginate(@links)
   .small-4.columns.small-offset-1.tagcloud
     .tag.tag-title
       Tags
