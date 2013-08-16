@@ -18,7 +18,7 @@
           .small-16.columns.small-offset-2
             %h5
               %strong.linktitle=link_to link.title, link    
-            %p.tags=raw link.tags.map(&:name).map { |t| link_to t, tag_path(t)}.join(' // ') 
+            %p.tags=raw link.tags.map(&:name).map { |t| link_to t, tag_path(t)}.join(' | ') 
             %p.previewtext=link.previewtext
             %p.aboutlink
               -gravatar_hash = Digest::MD5.hexdigest(link.user.email.downcase)
@@ -33,8 +33,9 @@
               = link_to "#{link.comments.count} comments", link
               |
               = show_favorite_star(current_user, link)
-    %div.pagination-centered
-      = foundation_paginate(@links)
+    .row
+      %div.pagination-centered
+        = foundation_paginate(@links)
   .small-4.columns.small-offset-1.tagcloud
     .tag.tag-title
       Tags
