@@ -4,7 +4,7 @@ class LinksController < ApplicationController
   # ALL LINKS
   def index
     params[:page] ||=1
-    params[:per_page] ||=5
+    params[:per_page] ||=7
 
     @search = Link.search do 
       fulltext params[:search]

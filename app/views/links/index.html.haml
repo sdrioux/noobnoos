@@ -38,7 +38,8 @@
         = foundation_paginate(@links)
   .small-4.columns.small-offset-1.tagcloud
     .tag.tag-title
-      Tags
+      %h5
+        TAGS
     - Tag.all.map(&:name).each do |t|
       .tag
         = link_to t, tag_path(t)
