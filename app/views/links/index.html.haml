@@ -33,14 +33,13 @@
               = link_to "#{link.comments.count} comments", link
               |
               = show_favorite_star(current_user, link)
+  %div.pagination-centered
+    = foundation_paginate(@links)
   .small-4.columns.small-offset-1.tagcloud
     .tag.tag-title
       Tags
     - Tag.all.map(&:name).each do |t|
       .tag
         = link_to t, tag_path(t)
-  .row
-    %div.pagination-centered
-      = foundation_paginate(@links)
 
 
