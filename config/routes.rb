@@ -1,4 +1,4 @@
-Readit::Application.routes.draw do
+Noobnoos::Application.routes.draw do
   devise_for :users
 
   # The priority is based upon order of creation:

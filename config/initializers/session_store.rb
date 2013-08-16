@@ -1,8 +1,8 @@
 # Be sure to restart your server when you modify this file.
 
-Readit::Application.config.session_store :cookie_store, key: '_readit_session'
+Noobnoos::Application.config.session_store :cookie_store, key: '_noobnoos_session'
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information
 # (create the session table with "rails generate session_migration")
-# Readit::Application.config.session_store :active_record_store
+# Noobnoos::Application.config.session_store :active_record_store
