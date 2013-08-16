@@ -72,11 +72,13 @@ class Link < ActiveRecord::Base
   end
 
   def tag_ids=(tag_ids)
-    tag_ids.each do |tag_id|
-      if self.persisted?
-        self.taggings.destroy_all
+    if self.persisted?
+      self.taggings.destroy_all
+      tag_ids.each do |tag_id|
         self.taggings.create(tag_id: tag_id) unless tag_id.blank?
-      else
+      end
+    else
+      tag_ids.each do |tag_id|
         self.taggings.build(tag_id: tag_id)
       end
     end
