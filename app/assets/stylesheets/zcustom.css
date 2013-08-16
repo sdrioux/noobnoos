@@ -118,7 +118,7 @@ div.show.mylinkspace {
 }
 
 div.mylinkspace.multiple {
-  height: 180px;
+  height: 200px;
 }
 
 .link_border {
@@ -143,7 +143,7 @@ div.small-5.columns.mythumbnail {
 }
 
 img.thumbnail.mythumbnail {
-  box-shadow: 0px 0px 1px 0px #000;
+  box-shadow: 0px 0px 2px 0px #000;
   min-width: 220px;
   margin-top: 2px;
 }
@@ -197,6 +197,10 @@ p.tags a:hover {
 p.previewtext {
   height: 30px; /*if I set this, will not be responsive*/
   font-size: .8em;
+}
+
+p.tags {
+  height: 22px;
 }
 
 p.aboutlink a {
