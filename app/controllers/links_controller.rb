@@ -14,7 +14,7 @@ class LinksController < ApplicationController
     if params[:search]
       @links = @result
     else
-      @links = Link.plusminus_tally.order('plusminus_tally ASC').page(params[:page].to_i).per_page(params[:per_page].to_i)
+      @links = Link.by_score.page(params[:page].to_i).per_page(params[:per_page].to_i)
     end
   end
 
