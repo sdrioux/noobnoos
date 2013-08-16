@@ -203,6 +203,11 @@ p.aboutlink a {
   color: #08037E;
 }
 
+div p.aboutlink {
+  margin-bottom: 0;
+  margin-top: 50px;
+}
+
 div.small-4.columns.tagcloud {
   height: 550px;
   border: 1px solid #ccc;
