@@ -10,6 +10,10 @@ class Link < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
+  scope :by_score, joins("LEFT OUTER JOIN votes ON links.id = votes.voteable_id AND votes.voteable_type = 'Link'").
+                   group('links.id').
+                   order('SUM(CASE votes.vote WHEN true THEN 1 WHEN false THEN -1 ELSE 0 END) DESC')
+
   #add to sunspot search index
   searchable do
     text :title

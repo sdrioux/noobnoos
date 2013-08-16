@@ -1,4 +1,4 @@
-module Readit
+module Noobnoos
 	class Application < Rails::Application
     # create a connection
     config.storage_connection = Fog::Storage.new({
