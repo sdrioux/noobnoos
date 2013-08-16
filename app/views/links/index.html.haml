@@ -33,7 +33,7 @@
               = link_to "#{link.comments.count} comments", link
               |
               = show_favorite_star(current_user, link)
-    .row
+    .row.paginating
       %div.pagination-centered
         = foundation_paginate(@links)
   .small-4.columns.small-offset-1.tagcloud

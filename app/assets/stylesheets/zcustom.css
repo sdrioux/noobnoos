@@ -217,6 +217,10 @@ div.small-4.columns.tagcloud {
 .tag {
   margin-top: 15px;
 }
+
+.row.paginating {
+  margin-top: 40px;
+}
 /*   COMMENTS   */
 
 .comments {
