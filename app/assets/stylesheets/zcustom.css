@@ -213,13 +213,13 @@ div p.aboutlink {
 }
 
 div.small-4.columns.tagcloud {
-  height: 550px;
+  height: 500px;
   border: 1px solid #ccc;
   border-radius: 5px;
 }
 
 .tag {
-  margin-top: 15px;
+  margin-top: 12px;
 }
 
 .row.paginating {

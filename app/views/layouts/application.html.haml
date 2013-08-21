@@ -70,9 +70,9 @@
                 %li= link_to "Sign In", new_user_session_path
               %li.divider
               %li
-                %a(tabindex="-1" href="#") About
+                %a(tabindex="-1" href="http://sdrioux.github.io") About Me
               %li
-                %a(tabindex="-1" href="#") Contact Me
+                %a(tabindex="-1" href="https://github.com/sdrioux/noobnoos.git") Source Code
               - if current_user.present?
                 %li.divider
                 %li= link_to "Sign Out", destroy_user_session_path, method: "delete", tabindex: "-1"
