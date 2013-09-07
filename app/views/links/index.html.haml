@@ -30,7 +30,7 @@
               -localtime = link.created_at-5.hours
               = localtime.strftime("%D %I:%M %p")
               |
-              = link_to "#{link.comments.count} comments", link
+              = link_to "#{link.comments.count} #{'comment'.pluralize(link.comments.count)}", link
               |
               = show_favorite_star(current_user, link)
     .row.paginating
