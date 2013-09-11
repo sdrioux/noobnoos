@@ -20,4 +20,4 @@ WebSolr[link:http://websolr.com/] Sunspot 1.3 server on *Amazon EC2*.
 
 Next steps:
 1.  Implement webthumb API as a background job to speed up the creation of each link.
-2.  Create categories for each link.  Users should be able to click a category and see all associated links.
+2.  <no>Create categories for each link.  Users should be able to click a category and see all associated links.</no>
