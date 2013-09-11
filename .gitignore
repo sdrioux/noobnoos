@@ -20,3 +20,4 @@ vendor/bundle
 # Ignore application configuration
 /config/application.yml
 /solr/data
+/log/*.log.*
