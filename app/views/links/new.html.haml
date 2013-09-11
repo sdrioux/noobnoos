@@ -22,7 +22,7 @@
           = collection_select :link, :tag_ids, Tag.all(order: "name ASC"), :id, :name, {include_blank: true}, { :multiple => true, :class => :selectTags}
       .row
         .small-24.columns.small-offset-7
-          = f.submit "Add Link", :class => 'button mylink-button'
+          = f.button "Add Link", :class => 'button mylink-button'
   / = render "devise/shared/links"
 
 

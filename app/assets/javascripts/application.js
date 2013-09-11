@@ -27,8 +27,12 @@ $(document).ready(function(){
   // clicking on the 'favorite' star will toggle it from blue to grey.
   $('.icon-star').click(function(){
     $(this).toggleClass('icon-muted');
-  })
+  });
 
+  $('form').submit(function(){
+    $('.mylink-button').html("<i class='icon-spinner icon-spin icon-large'></i>");
+    $('.mylink-button').attr('disabled', 'disabled');
+  });
   //fix the side nav if you start scrolling down.
   $(window).scroll(function(){
 
