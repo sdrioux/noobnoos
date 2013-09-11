@@ -31,6 +31,7 @@ $(document).ready(function(){
 
   $('form').submit(function(){
     $('.mylink-button').html("<i class='icon-spinner icon-spin icon-large'></i>");
+    $('.mylink-button').css('width', '119px');
     $('.mylink-button').attr('disabled', 'disabled');
   });
   //fix the side nav if you start scrolling down.
