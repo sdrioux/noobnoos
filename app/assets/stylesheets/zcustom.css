@@ -1,6 +1,7 @@
 .container {
   margin-top: 35px;  /*Clear fixed nav*/
   min-width: 1200px;
+  min-height: 502px;
 }
 
 .header {
