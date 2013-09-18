@@ -24,7 +24,27 @@ img.cat {
   color: #08037E !important;
 }
 
+.footer {
+  background-color:#000000;
+  height:40px;
+  bottom:0;
+  color: #ddd;
+  text-align: right;
+}
 
+.footer ul.footerlinks {
+  margin-right: 60px;
+  list-style: none;
+}
+
+.footer ul.footerlinks li {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+.footer ul li a {
+  color: #ddd;
+}
 /* SIGN-IN */
 
 .mysign-in-header, .myregistration-header,
