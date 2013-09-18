@@ -1,4 +1,4 @@
-== n00bn00s[link:http://n00bn00s.herokuapp.com] (formerly known as readit)
+== n00bn00s[link:http://n00bn00s.herokuapp.com] (formerly known as readit) {<img src="https://codeclimate.com/github/sdrioux/noobnoos.png" />}[https://codeclimate.com/github/sdrioux/noobnoos]
 
 I am currently a student at a 10 week Web Development bootcamp known as MakerSquare[link:http://www.themakersquare.com].
 
