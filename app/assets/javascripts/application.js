@@ -37,8 +37,8 @@ $(document).ready(function(){
   //fix the side nav if you start scrolling down.
   $(window).scroll(function(){
 
-    if ($(window).scrollTop() >= 210){
-      $('.tagcloud').css("position", "fixed").css("left", "75.1%").css("top", "85px").css("width", "186px")
+    if ($(window).scrollTop() >= 227){
+      $('.tagcloud').css("position", "fixed").css("left", "75.1%").css("top", "70px").css("width", "186px")
     } else {
       $('.tagcloud').css("position", "static");
     }
